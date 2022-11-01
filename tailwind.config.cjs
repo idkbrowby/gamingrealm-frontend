@@ -11,7 +11,7 @@ module.exports = {
         'dprimary':'#011627',
         'dsecondary':'#b0b7bf',
         'daccents':'#222e50',
-        'dhighlights':'#7c0b2b',
+        'dhighlights':'#7c0b2b'
       }
     },
   },
