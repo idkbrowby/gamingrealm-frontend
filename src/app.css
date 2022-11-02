@@ -3,7 +3,10 @@
 @tailwind utilities;
 
 @layer components {
-    .button{
-        @apply ease-in-out flex-wrap bg-center bg-lprimary text-lsecondary  hover:bg-lhighlights hover:text-laccents inline-flex ;
+    .leftside{
+        @apply flex inline-flex space-x-2 justify-start;
+    }
+    .rightside{
+        @apply flex inline-flex space-x-2 justify-end;
     }
 }
