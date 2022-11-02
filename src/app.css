@@ -1,3 +1,9 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer components {
+    .button{
+        @apply ease-in-out flex-wrap bg-center bg-lprimary text-lsecondary  hover:bg-lhighlights hover:text-laccents inline-flex ;
+    }
+}
