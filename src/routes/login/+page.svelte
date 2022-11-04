@@ -2,10 +2,10 @@
     let agreedTnC = false;
 </script>
 
-<div class="min-h-screen bg-cyan-900 flex p-20 justify-center">
+<div class="min-h-screen bg-slate-800 flex p-20 justify-center">
     <div class="flex items-cente justify-center">
-        <div class="bg-primary h-full p-10 w-full lg:basis-1/2 rounded-2xl md:rounded-l-2xl md:rounded-r-none flex-col justify-start">
-                <h1 class="text-lg py-10 basis-1/6 md:text-5xl font-mono text-start text-pink-300">Login</h1>
+        <div class="bg-slate-900 h-full p-10 w-full lg:basis-1/2 rounded-2xl md:rounded-l-2xl md:rounded-r-none flex-col justify-start">
+                <h1 class="text-lg py-10 basis-1/6 md:text-5xl font-mono font-extrabold text-start text-pink-400">Login</h1>
                 <form>
                     <div class="py-2">
                         <label for="username" class="block mb-2 text-sm font-medium font-mono text-gray-300">Username</label>
@@ -21,11 +21,11 @@
                         </div>
                         <label for="remember" class="ml-2 text-sm font-mono font-medium text-gray-900 dark:text-gray-400">I agree with the <a href="/" class="text-blue-600 hover:underline dark:text-blue-500">terms and conditions</a>.</label>
                     </div>
-                    <button type="submit" disabled={!agreedTnC} class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center disabled:bg-slate-500">Submit</button>
+                    <button type="submit" disabled={!agreedTnC} class="text-white bg-pink-400 hover:bg-pink-300 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center disabled:bg-slate-500">Submit</button>
                 </form>
         </div>
         <div class="hidden lg:block basis-1/2 overflow-hidden">
-            <img src="loginimage.webp" alt="login" class="w-full h-full rounded-r-2xl">
+            <img src="gamer2.webp" alt="a gamer" class="w-full h-full rounded-r-2xl">
         </div>
     </div>
 </div>
