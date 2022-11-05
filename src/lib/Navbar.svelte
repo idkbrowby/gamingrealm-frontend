@@ -1,11 +1,5 @@
 <script>
-    let primary='#2F4454';
-    let secondary ='#2E151B';
-    let tertiary='#1C3334';
-    let accents='#DA7B93';
-    let highlights='#376E6F';
     let menuactive = false;
-    var windowsize = window.innerWidth;
 </script>
 <nav class="w-full mx-auto bg-slate-500 pl-3 pr-3 py-0.5 rounded-b-lg">
     <div class="flex justify-between items-center h-10 px-2 ease-in-out">
@@ -48,7 +42,7 @@
     </div>
     <!-- mobile menu -->
     {#if menuactive}
-        {#if windowsize<768}
+        {#if window.innerWidth < 768}
         <div class="mobile-menu flex-col pt-2 md:hidden transition duration-200 ease-in-out screen">
             <!-- searchbar mobile -->
             <div class=" flex border border-white items-center rounded-xl  hover:bg-accents transition duration-200 pr-0.5 transition duration-200">
@@ -73,6 +67,8 @@
                 <button class="flex we-full justify-start"><a href="#" class="font-mono font-medium">Signup</a></button>
             </div>
         </div>
+        {:else}
+            menuactive = !menuactive;
         {/if}
     {/if}
 </nav>
