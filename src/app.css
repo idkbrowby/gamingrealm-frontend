@@ -3,31 +3,10 @@
 @tailwind utilities;
 
 @layer components {
-    .leftside{
-        @apply inline-flex space-x-2 justify-start;
-    }
-    .rightside{
-        @apply flex inline-flex space-x-2 justify-end;
-    }
-    .middle{
-        @apply flex inline-flex w-middle px-2 items-center;
-    }
-    .buttons{
-        @apply content-center mx-auto border-2 bg-dsecondary rounded-xl
-        hover:bg-lprimary h-10 px-2 align-middle;
-    }
-    .buttontext{
-        @apply text-dprimary font-bold items-center p-0.5
-       ;
-    }
-   
-} 
-#button:hover #buttontext{
-        color:#7D6167;
-}
-.w-middle{
-    width:75%;
 }
 .w-threefourths{
-    width:93%
+    width:75%;
+}
+.font-extremebold{
+    font-weight:900 ;
 }

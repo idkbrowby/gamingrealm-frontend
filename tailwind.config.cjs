@@ -11,14 +11,11 @@ module.exports = {
         xl: '1440px',
       },
       colors:{
-        'lprimary':'#7D6167',
-        'lsecondary':'#FFCFD2',
-        'laccents':'#F7FFDD',
-        'lhighlights':'#D0E3CC',
-        'dprimary':'#011627',
-        'dsecondary':'#b0b7bf',
-        'daccents':'#222e50',
-        'dhighlights':'#7c0b2b'
+        'primary':'#2F4454',
+        'secondary':'#2E151B',
+        'tertiary':'#1C3334',
+        'accents':'#DA7B93',
+        'highlights':'#376E6F',
       }
     },
   },
