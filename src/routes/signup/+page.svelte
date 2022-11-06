@@ -1,7 +1,7 @@
-<script>
+<script lang="ts">
     let agreedTnC = false;
-    let pass;
-    let confpass;
+    let pass: string;
+    let confpass: string;
 </script>
 <div class="min-h-screen bg-slate-800 flex p-20 justify-center">
     <div class="flex items-center justify-center">
