@@ -11,6 +11,14 @@
                         <input type="text" id="username" class="bg-gray-50 border font-mono text-gray-100 text-sm rounded-lg focus:ring-pink-300 focus:border-pink-500 block w-full p-2.5 dark:bg-gray-700 border-gray-600" placeholder="John" required>
                     </div>
                     <div class="py-2">
+                        <label for="username" class="block mb-2 text-sm font-medium font-mono text-gray-300">Username</label>
+                        <input type="text" id="username" class="bg-gray-50 border font-mono text-gray-100 text-sm rounded-lg focus:ring-pink-300 focus:border-pink-500 block w-full p-2.5 dark:bg-gray-700 border-gray-600" placeholder="John" required>
+                    </div>
+                    <div class="py-2">
+                        <label for="username" class="block mb-2 text-sm font-medium font-mono text-gray-300">Username</label>
+                        <input type="text" id="username" class="bg-gray-50 border font-mono text-gray-100 text-sm rounded-lg focus:ring-pink-300 focus:border-pink-500 block w-full p-2.5 dark:bg-gray-700 border-gray-600" placeholder="John" required>
+                    </div>
+                    <div class="py-2">
                         <label for="password" class="block mb-2 text-sm font-medium font-mono text-gray-300">Password</label>
                         <input type="password" id="password" class="bg-gray-50 border font-mono text-gray-100 text-sm rounded-lg focus:ring-pink-300 focus:border-pink-500 block w-full p-2.5 dark:bg-gray-700 border-gray-600" placeholder="Password" required>
                     </div>
