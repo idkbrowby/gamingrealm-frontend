@@ -10,3 +10,6 @@
 .font-extremebold{
     font-weight:900 ;
 }
+.parent:hover .parent-hover\:fill-accents{
+    color: pink;
+}

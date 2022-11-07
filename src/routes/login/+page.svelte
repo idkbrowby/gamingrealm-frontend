@@ -4,8 +4,8 @@
 
 <div class="min-h-screen bg-slate-800 flex p-20 justify-center">
     <div class="flex items-cente justify-center">
-        <div class="bg-slate-900 h-full p-10 w-full lg:basis-1/2 rounded-2xl md:rounded-l-2xl md:rounded-r-none flex-col justify-start">
-                <h1 class="text-lg py-10 basis-1/6 md:text-5xl font-mono font-extrabold text-start text-pink-400">Login</h1>
+        <div class="bg-slate-900 h-full p-10 w-full md:basis-1/2 rounded-xl md:rounded-l-2xl md:rounded-r-none flex-col justify-start">
+                <h1 class="text-lg py-10 basis-1/6 md:text-5xl justify-center font-mono font-extrabold text-start text-pink-400">Login</h1>
                 <form>
                     <div class="py-2">
                         <label for="username" class="block mb-2 text-sm font-medium font-mono text-gray-300">Username</label>
@@ -24,7 +24,7 @@
                     <button type="submit" disabled={!agreedTnC} class="text-white bg-pink-400 hover:bg-pink-300 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center disabled:bg-slate-500">Submit</button>
                 </form>
         </div>
-        <div class="hidden lg:block basis-1/2 overflow-hidden">
+        <div class="hidden md:flex w-full basis-1/2 overflow-hidden">
             <img src="gamer2.webp" alt="a gamer" class="w-full h-full rounded-r-2xl">
         </div>
     </div>
