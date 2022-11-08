@@ -4,11 +4,11 @@
 	let confpass: string;
 </script>
 
-<div class="min-h-screen bg-slate-800 flex p-20 justify-center">
+<div class="min-h-screen bg-slate-800 flex p-12 justify-center">
 	<div class="flex items-center justify-center">
 		<div class="bg-slate-900 h-full p-10 w-full rounded-xl rounded-l-2xl flex-col justify-center">
 			<h1
-				class="text-lg py-10 basis-1/6 md:text-5xl font-mono font-extrabold text-start text-pink-400 "
+				class="py-10 basis-1/6 text-5xl font-mono font-extrabold text-start text-pink-400 "
 			>
 				Signup
 			</h1>
@@ -105,7 +105,7 @@
 					>
 				{/if}
 				<p class="py-2 font-mono text-pink-200">
-					Already a User? <a class=" hover:text-slate-100" href="login/+page.svelte">Login Here</a>
+					Already a User? <a class=" hover:text-slate-100" href="/login">Login Here</a>
 				</p>
 				<p />
 			</form>

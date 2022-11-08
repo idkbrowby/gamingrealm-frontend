@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
 	import { usernameStore } from '$lib/stores.js';
 
 	let menuactive = false;
@@ -30,35 +30,37 @@
 				</a>
 			</button>
 		</div>
-		<!-- Searchbar -->
-		<div
-			class=" hidden md:flex border border-white items-center rounded-lg  hover:bg-orange-400 transition duration-200 pr-0.5 "
-		>
-			<input
-				type="text"
-				id="Name"
-				class="bg-gray-50 border font-mono py-1.5 text-gray-100 text-sm rounded-lg focus:ring-pink-300 focus:border-pink-500 block w-full p-2.5 dark:bg-gray-700 border-gray-600"
-				placeholder="Search"
-				required
-			/>
-			<button class="items-center ">
-				<svg
-					xmlns="http://www.w3.org/2000/svg"
-					viewBox="0 0 20 20"
-					fill="white"
-					class="w-6 h-6 pr-1 py-0.5"
-				>
-					<path
-						fill-rule="evenodd"
-						d="M9 3.5a5.5 5.5 0 100 11 5.5 5.5 0 000-11zM2 9a7 7 0 1112.452 4.391l3.328 3.329a.75.75 0 11-1.06 1.06l-3.329-3.328A7 7 0 012 9z"
-						clip-rule="evenodd"
-					/>
-				</svg>
-			</button>
-		</div>
 		{#if !signedin}
-			<!-- Login Signup -->
-			<div class="hidden md:flex justify-between rounded-xl space-x-5 text-white font">
+			
+			<div class="flex h-full items-center py-1">
+			<!-- Searchbar -->
+			<div
+				class=" hidden md:flex border border-white items-center rounded-lg  hover:bg-orange-400 transition duration-200 pr-0.5 "
+			>
+				<input
+					type="text"
+					id="Name"
+					class="bg-gray-50 border font-mono py-1.5 text-gray-100 text-sm rounded-lg focus:ring-pink-300 focus:border-pink-500 block w-full p-2.5 dark:bg-gray-700 border-gray-600"
+					placeholder="Search"
+					required
+				/>
+				<button class="items-center ">
+					<svg
+						xmlns="http://www.w3.org/2000/svg"
+						viewBox="0 0 20 20"
+						fill="white"
+						class="w-6 h-6 pr-1 py-0.5"
+					>
+						<path
+							fill-rule="evenodd"
+							d="M9 3.5a5.5 5.5 0 100 11 5.5 5.5 0 000-11zM2 9a7 7 0 1112.452 4.391l3.328 3.329a.75.75 0 11-1.06 1.06l-3.329-3.328A7 7 0 012 9z"
+							clip-rule="evenodd"
+						/>
+					</svg>
+				</button>
+			</div>
+			<!-- Login and signup -->
+			<div class="hidden md:flex justify-between rounded-xl pl-4 space-x-4 text-white font">
 				<button
 					class="transition duration-200  rounded-xl p-1 text-white hover:text-orange-200  flex items-center"
 					><a href="/login" class="font-mono  font-semibold pr-2">Login</a><svg
@@ -84,14 +86,44 @@
 					><a href="/signup" class=" font-mono  font-semibold ">Signup</a></button
 				>
 			</div>
+		</div>
 		{:else}
 			<!-- User Details -->
+
+			<div class="flex h-full items-center py-1">
+				<!-- Searchbar -->
+				<div
+					class=" hidden md:flex border border-white items-center rounded-lg  hover:bg-orange-400 transition duration-200 pr-0.5 "
+				>
+					<input
+						type="text"
+						id="Name"
+						class="bg-gray-50 border font-mono py-1.5 text-gray-100 text-sm rounded-lg focus:ring-pink-300 focus:border-pink-500 block w-full p-2.5 dark:bg-gray-700 border-gray-600"
+						placeholder="Search"
+						required
+					/>
+					<button class="items-center ">
+						<svg
+							xmlns="http://www.w3.org/2000/svg"
+							viewBox="0 0 20 20"
+							fill="white"
+							class="w-6 h-6 pr-1 py-0.5"
+						>
+							<path
+								fill-rule="evenodd"
+								d="M9 3.5a5.5 5.5 0 100 11 5.5 5.5 0 000-11zM2 9a7 7 0 1112.452 4.391l3.328 3.329a.75.75 0 11-1.06 1.06l-3.329-3.328A7 7 0 012 9z"
+								clip-rule="evenodd"
+							/>
+						</svg>
+					</button>
+				</div>
 			<div
-				class="hidden md:flex justify-between rounded-xl space-x-5 text-white hover:text-orange-200 font-medium hover:font-medium font-mono"
+				class="hidden md:flex justify-between pl-4 rounded-xl space-x-5 text-white hover:text-orange-200 font-medium hover:font-medium font-mono"
 			>
 				<button class="  items-center" id="User">
 					{username}
 				</button>
+			</div>
 			</div>
 		{/if}
 		<!-- Mobile stuff -->
@@ -101,7 +133,7 @@
 					xmlns="http://www.w3.org/2000/svg"
 					viewBox="0 0 20 20"
 					fill="white"
-					class="menu-button w-5 h-5 hover:fill-primary"
+					class="menu-button w-5 h-5 hover:fill-accents"
 				>
 					<path
 						fill-rule="evenodd"
@@ -148,7 +180,7 @@
 						class=" px-2 py-2 flex justify-between text-white hover:text-pink-400 text-opacity-85"
 					>
 						<button class="w-full"
-							><a href="#" class="font-mono bold flex justify-between items-center"
+							><a href="/login" class="font-mono bold flex justify-between items-center"
 								>Login <svg
 									xmlns="http://www.w3.org/2000/svg"
 									viewBox="0 0 20 20"
@@ -172,7 +204,7 @@
 					<!-- Signup Bar -->
 					<div class="px-2 py-2 w-full text-white hover:text-pink-400 text-opacity-85">
 						<button class=" w-full justify-start"
-							><a href="#" class="flex justify-start font-mono font-medium w-full">Signup</a
+							><a href="/signup" class="flex justify-start font-mono font-medium w-full">Signup</a
 							></button
 						>
 					</div>

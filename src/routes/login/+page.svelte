@@ -1,14 +1,14 @@
-<script>
+<script lang="ts">
 	let agreedTnC = false;
 </script>
 
-<div class="min-h-screen bg-slate-800 flex p-20 justify-center">
+<div class="min-h-screen bg-slate-800 flex p-12 justify-center">
 	<div class="flex items-cente justify-center">
 		<div
 			class="bg-slate-900 h-full p-10 w-full md:basis-1/2 rounded-xl md:rounded-l-2xl md:rounded-r-none flex-col justify-start"
 		>
 			<h1
-				class="text-lg py-10 basis-1/6 md:text-5xl justify-center font-mono font-extrabold text-start text-pink-400"
+				class=" py-10 basis-1/6 text-5xl justify-center font-mono font-extrabold text-start text-pink-400"
 			>
 				Login
 			</h1>
@@ -63,6 +63,9 @@
 					class="text-white bg-pink-400 hover:bg-pink-300 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center disabled:bg-slate-500"
 					>Submit</button
 				>
+				<p class="py-2 font-mono text-pink-200">
+					Not a User? <a class=" hover:text-slate-100" href="/signup">Signup Here</a>
+				</p>
 			</form>
 		</div>
 		<div class="hidden md:flex w-full basis-1/2 overflow-hidden">
