@@ -61,7 +61,7 @@
 			<div class="hidden md:flex justify-between rounded-xl space-x-5 text-white font">
 				<button
 					class="transition duration-200  rounded-xl p-1 text-white hover:text-orange-200  flex items-center"
-					><a href="#" class="font-mono  font-semibold pr-2">Login</a><svg
+					><a href="/login" class="font-mono  font-semibold pr-2">Login</a><svg
 						xmlns="http://www.w3.org/2000/svg"
 						viewBox="0 0 20 20"
 						fill="currentColor"
@@ -81,7 +81,7 @@
 				</button>
 				<button
 					class="bg-primary hover:bg-orange-200 hover:bg-opacity-75 transition duration-200 border-4 border-primary rounded-xl p-1 text-white hover:text-primary  flex items-center"
-					><a href="#" class=" font-mono  font-semibold ">Signup</a></button
+					><a href="/signup" class=" font-mono  font-semibold ">Signup</a></button
 				>
 			</div>
 		{:else}

@@ -1,7 +1,7 @@
 import { invalid, redirect } from '@sveltejs/kit';
 import { usernameStore } from '$lib/stores.js';
 import { COOKIE_MAX_AGE } from '$lib/constants';
-import * as api from '$lib/api.js';
+import * as api from '../../lib/api';
 
 /** @type {import('../../../.svelte-kit/types/src/routes/login/$types').Actions} */
 export const actions = {
