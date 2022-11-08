@@ -5,8 +5,21 @@ A web app built with [SvelteKit](https://kit.svelte.dev) and [TailwindCSS](https
 
 Install dependencies with the `yarn` package manager:
 ```bash
-yarn install
+npm install
 ```
+
+The backend server needs to be running as well to test the frontend:
+Clone the repo:
+```bash
+git clone https://github.com/idkbrowby/gamingrealm-backend.git
+```
+
+Run with Docker:
+```bash
+docker compose up --build
+```
+
+For detailed instructions, read the [Backend Repo README](https://github.com/idkbrowby/gamingrealm-backend)
 
 Run the development server with
 
@@ -26,5 +39,3 @@ npm run build
 ```
 
 You can preview the production build with `npm run preview`.
-
-> To deploy your app, you may need to install an [adapter](https://kit.svelte.dev/docs/adapters) for your target environment.
