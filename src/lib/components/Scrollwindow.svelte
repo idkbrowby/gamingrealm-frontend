@@ -1,7 +1,7 @@
 <script lang="ts">
     
     import {onMount} from "svelte";
-	import InfiniteScroll from "./infinitescroll.svelte";
+	import InfiniteScroll from "./Infinitescroll.svelte";
 	
 	// if the api (like in this example) just have a simple numeric pagination
     let page = 0;
