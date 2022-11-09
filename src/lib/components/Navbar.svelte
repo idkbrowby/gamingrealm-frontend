@@ -120,8 +120,8 @@
 			<div
 				class="hidden md:flex justify-between pl-4 rounded-xl space-x-5 text-white hover:text-orange-200 font-medium hover:font-medium font-mono"
 			>
-				<button class="  items-center" id="User">
-					{username}
+				<button class="items-center" id="User">
+					<a href="/user/{$page.data.user.id}">{username}</a>
 				</button>
 			</div>
 			</div>
