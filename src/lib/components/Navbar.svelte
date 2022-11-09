@@ -1,9 +1,9 @@
 <script lang="ts">
-	import { usernameStore } from '$lib/stores.js';
+	import { page } from '$app/stores';
 
 	let menuactive = false;
-	let signedin = $usernameStore != null;
-	let username = $usernameStore;
+	let signedin = $page.data.user != null;
+	let username = $page.data.user ? $page.data.user.username : null;
 </script>
 
 <nav class="w-full mx-auto bg-slate-800 pl-3 pr-3 py-0.5 rounded-b-lg">
@@ -12,7 +12,7 @@
 		<div class=" flex space-x-4 items-center text-primary fill-accents transition duration-200">
 			<button class="flex pr-2 transition duration-200">
 				<a
-					href="#"
+					href="/"
 					class="flex font-mono font-extremebold  items-center text-white transition duration-200 "
 				>
 					<svg
@@ -214,7 +214,7 @@
 						class=" px-2 py-4 flex justify-between text-white hover:text-pink-400 text-opacity-85"
 					>
 						<button class="w-full"
-							><a href="#" class="font-mono font-bold flex justify-between items-center"
+							><a href="/user/@me" class="font-mono font-bold flex justify-between items-center"
 								>{username}</a
 							></button
 						>
