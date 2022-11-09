@@ -1,9 +1,9 @@
 <script lang="ts">
-	import { usernameStore } from '$lib/stores.js';
+	import { page } from '$app/stores';
 
 	let menuactive = false;
-	let signedin = $usernameStore != null;
-	let username = $usernameStore;
+	let signedin = $page.data.user != null;
+	let username = $page.data.user ? $page.data.user.username : null;
 </script>
 
 <nav class="w-full mx-auto bg-slate-800 pl-3 pr-3 py-0.5 rounded-b-lg">

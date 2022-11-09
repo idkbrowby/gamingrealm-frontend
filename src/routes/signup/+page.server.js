@@ -1,9 +1,15 @@
+// @ts-nocheck
 import { invalid, redirect } from '@sveltejs/kit';
-import { usernameStore } from '$lib/stores.js';
 import { COOKIE_MAX_AGE } from '$lib/constants';
 import * as api from '../../lib/api';
 
-/** @type {import('../../../.svelte-kit/types/src/routes/login/$types').Actions} */
+
+export async function load({ parent }) {
+	const { user } = await parent();
+	if (user) throw redirect(307, '/');
+}
+
+
 export const actions = {
     default: async ({ cookies, request }) => {
         const data = await request.formData();
@@ -17,8 +23,10 @@ export const actions = {
         if (!res.ok) {
             return invalid(400, responseData);
         }
-        cookies.set('session-id', responseData['session_id'], { path: '/', maxAge: COOKIE_MAX_AGE });
-        usernameStore.set(responseData.username);
+
+        const user = responseData.user;
+        const value = btoa(JSON.stringify(user));
+        cookies.set('user', value, { path: '/', maxAge: COOKIE_MAX_AGE });
         throw redirect(307, '/');
     }
 };
