@@ -20,7 +20,7 @@
         <p class="flex justify-center font-mono text-start text-slate-50">Joined: {parsedCreatedAt.toLocaleString(DateTime.DATETIME_FULL)}</p>
         <span class="flex justify-center space-x-10">
             <div class="flex-col ">
-                <div>
+                <div class="flex justify-center">
                     <a class=" font-mono text-slate-50 text-3xl text-center" href="/followers">
                         <button>
                             <bold class="text-bold">{followerCount}</bold>
@@ -35,16 +35,16 @@
                     </a>
                 </div>
             </div>
-            <div class="flex-col ">
-                <div>
-                    <a class=" font-mono text-slate-50 text-3xl text-center" href="/followers">
+            <div class="flex-col">
+                <div class="flex justify-center">
+                    <a class=" font-mono text-slate-50 text-3xl items-center text-center" href="/followers">
                         <button>
                             <bold class="text-bold">{followingCount}</bold>
                         </button>
                     </a>
                 </div>
                 <div>
-                    <a class=" font-mono text-slate-50 text-center" href="/followers">
+                    <a class=" font-mono text-slate-50" href="/followers">
                         <button>
                             <bold class="text-bold">Following</bold>
                         </button>
@@ -53,22 +53,18 @@
             </div>
             <div class="flex-col ">
                 <div>
-                    <a class=" font-mono text-slate-50 text-3xl text-center" href="/followers">
-                        <button>
+                    <p class=" font-mono text-slate-50 text-3xl text-center" >
                             <bold class="text-bold">{postsCount}</bold>
-                        </button>
-                    </a>
+                    </p>
                 </div>
-                <div>
-                    <a class=" font-mono text-slate-50 text-center" href="/followers">
-                        <button>
+                <div class="flex justify-center items-center py-0.5">
+                    <p class="font-mono text-slate-50">
                             <bold class="text-bold">Posts</bold>
-                        </button>
-                    </a>
+                    </p>
                 </div>
             </div>
             
-        </span>
+        </span> 
         {#if $page.data.user && username != $page.data.user.username}
         <!--User is logged in and is not viewing their own page-->
             <span class="inline-flex">
