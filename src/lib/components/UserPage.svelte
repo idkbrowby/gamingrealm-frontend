@@ -66,7 +66,7 @@
             </div>
             
         </span> 
-        {#if $page.data.user && id != $page.data.user.id}
+        {#if $page.data.user && id != $page.data.user.user.id}
         <!--User is logged in and is not viewing their own page-->
             <span class="inline-flex">
                 {#if currentUserIsFollowing}
