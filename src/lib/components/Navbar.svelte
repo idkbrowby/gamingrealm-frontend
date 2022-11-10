@@ -2,8 +2,8 @@
 	import { page } from '$app/stores';
 	import {redirect}  from '@sveltejs/kit';
 	let menuactive = false;
-	let signedin=$page.data.user != null;
-	let username =$page.data.user ? $page.data.user.username : null;
+	let signedin = $page.data.user != null;
+	let username = $page.data.user ? $page.data.user.user.username : null;
 	export async function deletecookie(){
 		await fetch("/logout");
 		throw redirect(307,"/");
@@ -124,7 +124,7 @@
 				class="hidden md:flex justify-between pl-4 rounded-xl space-x-5 text-white hover:text-orange-200 font-medium hover:font-medium font-mono"
 			>
 				<button class="items-center" id="User">
-					<a href="/user/{$page.data.user.id}">{username}</a> 
+					<a href="/user/{$page.data.user.username}">{username}</a> 
 				</button>
 			</div>
 			<div class="hidden md:flex justify-between pl-4 rounded-xl space-x-5 text-white hover:text-orange-200 font-medium hover:font-medium font-mono">

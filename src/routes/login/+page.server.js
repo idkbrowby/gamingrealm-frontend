@@ -1,6 +1,5 @@
 // @ts-nocheck
 import { invalid, redirect } from '@sveltejs/kit';
-import { usernameStore } from '$lib/stores.js';
 import { COOKIE_MAX_AGE } from '$lib/constants';
 import * as api from '../../lib/api';
 
@@ -24,10 +23,9 @@ export const actions = {
         if (!res.ok) {
             return invalid(400, responseData);
         }
-        const user = responseData.user;
-        const value = btoa(JSON.stringify(user));
+        console.log(responseData);
+        const value = btoa(JSON.stringify(responseData));
         cookies.set('user', value, { path: '/', maxAge: COOKIE_MAX_AGE });
-        usernameStore.set(responseData.username);
         throw redirect(307, '/');
     }
 };

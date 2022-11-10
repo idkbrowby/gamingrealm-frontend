@@ -2,6 +2,7 @@
     import { DateTime } from "luxon";
     import { page } from "$app/stores";
 
+    export let id: string;
     export let username: string;
     export let email: string;
     export let createdAt: string;
@@ -21,7 +22,7 @@
         <span class="flex justify-center space-x-10">
             <div class="flex-col ">
                 <div class="flex justify-center">
-                    <a class=" font-mono text-slate-50 text-3xl text-center" href="/followers">
+                        <a class=" font-mono text-slate-50 text-3xl text-center" href="/followers">
                         <button>
                             <bold class="text-bold">{followerCount}</bold>
                         </button>
@@ -65,7 +66,7 @@
             </div>
             
         </span> 
-        {#if $page.data.user && username != $page.data.user.username}
+        {#if $page.data.user && id != $page.data.user.id}
         <!--User is logged in and is not viewing their own page-->
             <span class="inline-flex">
                 {#if currentUserIsFollowing}
