@@ -15,6 +15,5 @@ export async function load({ cookies, request, params }) {
     }
     const res = await api.get(`user/${params.id}`, headers);
     let data = await res.json();
-    console.log(data);
     return data;
   }

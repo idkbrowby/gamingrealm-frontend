@@ -124,7 +124,7 @@
 				class="hidden md:flex justify-between pl-4 rounded-xl space-x-5 text-white hover:text-orange-200 font-medium hover:font-medium font-mono"
 			>
 				<button class="items-center font-semibold" id="User">
-					<a href="/user/{$page.data.user.username}">{username}</a> 
+					<a href="/user/{$page.data.user.user.id}">{username}</a> 
 				</button>
 			</div>
 			<div class="hidden md:flex justify-between pl-4 rounded-xl space-x-5 text-white hover:text-orange-200 hover:font-medium font-mono font-semibold">
@@ -220,7 +220,7 @@
 						class=" px-2 pt-4 flex justify-between text-white hover:text-pink-400 text-opacity-85"
 					>
 						<button class="w-full"
-							><a href="/user/@me" class="font-mono font-bold flex justify-between items-center"
+							><a href="/user/{$page.data.user.user.id}" class="font-mono font-bold flex justify-between items-center"
 								>{username}</a
 							></button
 						>
