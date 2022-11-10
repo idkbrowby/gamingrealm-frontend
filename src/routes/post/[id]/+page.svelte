@@ -1,4 +1,7 @@
 <script>
     import Postpage from "$lib/components/Postpage.svelte";
 </script>
-<Postpage/>
+
+<Postpage author="Author" title="Title" rating="4.0/5.0" description=" Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ex est, accumsan vel dui a, feugiat mattis sapien. Cras massa dui, porta tincidunt dolor in, laoreet malesuada quam. Sed vitae felis ut purus fringilla tempus. Ut nec nibh consequat, accumsan elit quis, pulvinar nisi. Vivamus sit amet eros sed ex sodales dignissim sed non odio. Donec commodo neque et faucibus hendrerit. Integer laoreet blandit viverra. Etiam vitae justo neque. Phasellus viverra condimentum tempus. Duis non sodales ligula. Maecenas non neque faucibus, porta orci eu, bibendum arcu. Pellentesque ac urna nec risus scelerisque semper eu in ante. Praesent vestibulum erat ut interdum maximus. Nunc dolor risus, facilisis in hendrerit vitae, fermentum sit amet massa. Cras et eros congue, blandit dolor non, semper dui. Cras sagittis ex ac mattis pulvinar.
+
+Etiam porttitor blandit velit, non hendrerit enim dapibus at. Sed quis ligula efficitur, convallis purus non, tincidunt purus. Aenean lectus erat, luctus eget auctor commodo, cursus et libero. Suspendisse fermentum elit ut lobortis ultricies. Sed ligula augue, lobortis vel nisi luctus, aliquam gravida massa. Vivamus dapibus massa ac libero maximus, eu mattis tortor sodales. In malesuada ac tellus sit amet commodo. Mauris viverra dignissim fermentum. Quisque placerat metus a mauris faucibus, id dictum neque rhoncus. Sed ut ante tellus. Duis eu urna enim. In pellentesque augue eu dui luctus fermentum. Phasellus quis neque tellus. " image="/gamer2.webp"/>
