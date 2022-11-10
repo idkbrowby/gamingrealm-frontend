@@ -9,7 +9,11 @@
 	let newBatch = [];
 
 	let cursorid=null;	
-    
+    async function fetchTags(){
+        let response = await api.get("tags");
+        let tags = await response.json();
+        return tags;
+    }
     async function fetchData() {
         const headers = new Headers();
         if (cursorid!=null){
@@ -75,14 +79,20 @@
                 </div>
             </div>
         </div>
-        <div class="hidden md:flex flex-col space-x-16 bg-slate-800 p-4 items-center rounded-xl">
+        <div class="hidden md:flex flex-col bg-slate-800 p-4 items-center rounded-xl">
             <h1>Tags</h1>
             <div class = "flex flex-wrap space-y-4 justify-center">
-                <!-- {#each tags as tag}
+                {#await fetchTags()}
+                    <h1>Getting tags</h1>
+                {:then tags} 
+                    {#each tags as tag}
                     <div class=" border-2 border-white">
-                        {tag}
+                        {tag.tag_name}
                     </div>
-                {/each} -->
+                {/each}
+                {/await}
+
+                
             </div>
         </div>
         

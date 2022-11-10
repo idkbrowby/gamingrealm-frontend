@@ -16,7 +16,24 @@
 
 <div class="p-2">
     <div class="flex-col items-center rounded-xl bg-slate-700 p-2">
-        <h1 class="flex justify-center text-2xl md:text-4xl font-mono font-semibold text-slate-50">{username}</h1>
+        <div class="flex justify-center space-x-4">
+            <h1 class="flex justify-center text-2xl md:text-4xl font-mono font-semibold text-slate-50">{username}</h1>
+            {#if $page.data.user && id != $page.data.user.user.id}
+            <!--User is logged in and is not viewing their own page-->
+                <div class="flex justify-center">
+                    {#if currentUserIsFollowing}
+                        <button
+                        class="bg-slate-800 hover:bg-orange-200 hover:bg-opacity-75 transition duration-200 border-4 border-primary rounded-xl p-1 text-white hover:text-primary  flex items-center"
+                        ><a href="/unfollow" class=" font-mono  font-semibold ">Unfollow</a></button>
+                    {:else}
+                        <button
+                        class="bg-slate-800 hover:bg-orange-200 hover:bg-opacity-75 transition duration-200 border-4 border-primary rounded-xl p-1 text-white hover:text-primary  flex items-center"
+                        ><a href="/follow" class=" font-mono  font-semibold ">Follow</a></button
+                    >
+                    {/if}
+                </div>
+            {/if}
+        </div>
         <p class="flex justify-center font-mono text-start text-slate-50">Email: {email}</p>
         <p class="flex justify-center font-mono text-start text-slate-50">Joined: {parsedCreatedAt.toLocaleString(DateTime.DATETIME_FULL)}</p>
         <span class="flex justify-center space-x-10">
@@ -64,22 +81,6 @@
                     </p>
                 </div>
             </div>
-            
         </span> 
-        {#if $page.data.user && id != $page.data.user.user.id}
-        <!--User is logged in and is not viewing their own page-->
-            <span class="inline-flex">
-                {#if currentUserIsFollowing}
-                    <button
-                    class="bg-primary hover:bg-orange-200 hover:bg-opacity-75 transition duration-200 border-4 border-primary rounded-xl p-1 text-white hover:text-primary  flex items-center"
-                    ><a href="/unfollow" class=" font-mono  font-semibold ">Unfollow</a></button>
-                {:else}
-                    <button
-                    class="bg-primary hover:bg-orange-200 hover:bg-opacity-75 transition duration-200 border-4 border-primary rounded-xl p-1 text-white hover:text-primary  flex items-center"
-                    ><a href="/follow" class=" font-mono  font-semibold ">Follow</a></button
-                >
-                {/if}
-            </span>
-        {/if}
     </div>
 </div>
