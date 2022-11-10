@@ -88,7 +88,7 @@
 				</div>
 				{#if pass != confpass}
 					<div class="pb-2">
-						<h1 class=" text-white text-mono">Passwords Do Not Match!!</h1>
+						<h1 class=" text-white text-mono font-semibold">Passwords Do Not Match!!</h1>
 					</div>
 					<button
 						type="submit"
@@ -104,10 +104,10 @@
 						>Submit</button
 					>
 				{/if}
-				<p class="py-2 font-mono text-pink-200">
-					Already a User? <a class=" hover:text-slate-100" href="/login">Login Here</a>
+				<p class="py-2 font-mono text-pink-200">Already a User? <a class=" hover:text-slate-100" href="/login">Login Here</a>
 				</p>
-				<p />
+				
+				
 			</form>
 		</div>
 	</div>

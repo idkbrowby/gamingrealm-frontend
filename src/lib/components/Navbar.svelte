@@ -2,10 +2,9 @@
 	import { page } from '$app/stores';
 
 	let menuactive = false;
-	let signedin = $page.data.user != null;
-	let username = $page.data.user ? $page.data.user.username : null;
+	let signedin=$page.data.user != null;
+	let username =$page.data.user ? $page.data.user.username : null;
 </script>
-
 <nav class="w-full mx-auto bg-slate-800 pl-3 pr-3 py-0.5 rounded-b-lg">
 	<div class="flex justify-between items-center h-10 px-2 ease-in-out">
 		<!-- Logo -->
@@ -120,9 +119,12 @@
 			<div
 				class="hidden md:flex justify-between pl-4 rounded-xl space-x-5 text-white hover:text-orange-200 font-medium hover:font-medium font-mono"
 			>
-				<button class="  items-center" id="User">
-					{username}
+				<button class="items-center" id="User">
+					<a href="/user/{$page.data.user.id}">{username}</a> 
 				</button>
+			</div>
+			<div class="hidden md:flex justify-between pl-4 rounded-xl space-x-5 text-white hover:text-orange-200 font-medium hover:font-medium font-mono">
+				<button>Logout</button>
 			</div>
 			</div>
 		{/if}
@@ -218,6 +220,10 @@
 								>{username}</a
 							></button
 						>
+					</div>
+					<div class=" px-2 py-4 flex text-white hover:text-pink-400 text-opacity-85">
+						<button class="w-full font-mono font-bold flex justify-between items-center">Logout
+						</button>
 					</div>
 				{/if}
 			</div>
