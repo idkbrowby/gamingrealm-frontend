@@ -1,11 +1,15 @@
 <script lang="ts">
 	import { page } from '$app/stores';
-
+	import {redirect}  from '@sveltejs/kit';
 	let menuactive = false;
 	let signedin=$page.data.user != null;
 	let username =$page.data.user ? $page.data.user.username : null;
+	export async function deletecookie(){
+		await fetch("/logout");
+		throw redirect(307,"/");
+	}
 </script>
-<nav class="w-full mx-auto bg-slate-800 pl-3 pr-3 py-0.5 rounded-b-lg">
+<nav class="w-full mx-auto bg-slate-800 pl-3 pr-3 py-2 rounded-b-lg">
 	<div class="flex justify-between items-center h-10 px-2 ease-in-out">
 		<!-- Logo -->
 		<div class=" flex space-x-4 items-center text-primary fill-accents transition duration-200">
@@ -25,7 +29,7 @@
 						/>
 					</svg>
 					<!-- Name of Website -->
-					<h1 class="px-2 hover:text-orange-300">Gaming Realm</h1>
+					<h1 class="px-2 hover:text-orange-300 text-2xl">Gaming Realm</h1>
 				</a>
 			</button>
 		</div>
@@ -124,7 +128,7 @@
 				</button>
 			</div>
 			<div class="hidden md:flex justify-between pl-4 rounded-xl space-x-5 text-white hover:text-orange-200 font-medium hover:font-medium font-mono">
-				<button>Logout</button>
+			<button on:click={deletecookie}>Logout</button>
 			</div>
 			</div>
 		{/if}
@@ -222,8 +226,11 @@
 						>
 					</div>
 					<div class=" px-2 py-4 flex text-white hover:text-pink-400 text-opacity-85">
-						<button class="w-full font-mono font-bold flex justify-between items-center">Logout
-						</button>
+						
+							<button class="w-full font-mono font-bold flex justify-between items-center" on:click={deletecookie}>
+								Logout
+							</button>
+						
 					</div>
 				{/if}
 			</div>

@@ -1,23 +1,31 @@
 <script lang="ts">
     
     import {onMount} from "svelte";
-	import InfiniteScroll from "./Infinitescroll.svelte";
-	
-	// if the api (like in this example) just have a simple numeric pagination
-    let page = 0;
-	// but most likely, you'll have to store a token to fetch the next page
-	let nextUrl = '';
+	import InfiniteScroll from "./InfiniteScroll.svelte";
+    import * as api from "../api";
 	// store all the data here.
 	let data = [];
 	// store the new batch of data here.
 	let newBatch = [];
-	
-    let tags=["asd","Asdasd","asdasdasd","asdasdasdqwerlia","iuoqweoiasdflhasdfj","aksujjhaksjdhaksjdh"];
 
-	async function fetchData() {
-		const response = await fetch(`https://api.openbrewerydb.org/breweries?page=${page}`);
-		newBatch = await response.json();
-		console.log(newBatch)
+	let cursorid=null;	
+    
+    async function fetchData() {
+        const headers = new Headers();
+        if (cursorid!=null){
+            headers.set("cursor",cursorid);
+        }
+        else{
+            const headers=null;
+        }
+		const response = await api.get("post",headers);
+        const responsedata = await response.json();
+		newBatch =  responsedata.data;
+		cursorid = responsedata.cursor_id;
+        console.log(responsedata.cursor_id);
+        console.log(newBatch);
+        console.log(cursorid);
+        return cursorid;
 	};
 	
 	onMount(()=> {
@@ -34,45 +42,46 @@
     <div class=" flex w-full justify-between space-x-4  ">
         
         <div class="w-full flex-col justify-center rounded-xl space-y-2 bg-slate-800 p-4">
-            <a href="/createpost">
+            <a href="/post/create">
                 <button class="w-full">
-                    <div class="w-full border-2 py-2 flex-col justify-center border-white rounded-lg" id="createpost">
+                    <div class="w-full border-2 py-2 text-3/2xl flex-col justify-center font-semibold border-white rounded-lg" id="createpost">
                         Create post
                     </div>
                 </button>
             </a>
             <!--Posts -->
-            <div class="w-full p-2 overflow-y-auto border-r-2 border-t-2 border-l-2 rounded-xl border-white">
-                <ul class=" overflow-y-auto space-y-1 text-white font-mono ">   
-                        {#each data as post}
-                            <li> 
-                                <div class=" p-1 items-center border-2 rounded-md border-white space-y-1">
-                                    {post.name}
-                                </div> 
-                                <div class=" p-1 items-center border-2 rounded-md border-white space-y-1">
-                                    {post.state}
-                                </div> 
-                                <div class=" p-1 items-center border-2 rounded-md border-white space-y-1">
-                                    {post.longitude}
-                                </div> 
+            <div class="flex flex-col h-full w-full">
+                <div class="py-2">
+                    <ul class="flex flex-col w-full space-y-2 max-h-100 list-none overflow-x-scroll">
+                        {#each data as item}
+                        <div class="p-2 bg-slate-500 rounded-md">
+                            <li class="flex text-md">
+                                {item.title}
                             </li>
+                            <li>
+
+                            </li>
+                            <li>
+                                {item.created_at}
+                            </li> 
+                        </div>
                         {/each}
                         <InfiniteScroll
-                            hasMore={newBatch.length}
-                            threshold={1000}
-                            on:loadMore={() => {page++; fetchData()}} />
-                            {page}
-                </ul>
+                        hasMore={newBatch.length}
+                        threshold={100}
+                        on:loadMore={() => {cursorid=fetchData()}} />
+                    </ul>
+                </div>
             </div>
         </div>
         <div class="hidden md:flex flex-col space-x-16 bg-slate-800 p-4 items-center rounded-xl">
             <h1>Tags</h1>
             <div class = "flex flex-wrap space-y-4 justify-center">
-                {#each tags as tag}
+                <!-- {#each tags as tag}
                     <div class=" border-2 border-white">
                         {tag}
                     </div>
-                {/each}
+                {/each} -->
             </div>
         </div>
         

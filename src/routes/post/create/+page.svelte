@@ -1,9 +1,12 @@
 <script lang="ts">
+	
 	let input;
 	let container;
 	let image;
 	let placeholder;
 	let showImage = false;
+	
+	import * as api from "../../../lib/api";
 
 	function onChange() {
 		const file = input.files[0];
@@ -47,7 +50,7 @@
 					id="title"
 					name="title"
 					class="bg-gray-50 border font-mono text-gray-100 text-sm rounded-lg focus:ring-pink-300 focus:border-pink-500 block w-full p-2.5 dark:bg-gray-700 border-gray-600"
-					placeholder="Praveen's Nudes"
+					placeholder="Epic Gamer Post"
 					required
 				/>
 				
@@ -57,7 +60,7 @@
 				<textarea name="text" rows="6" cols="10" placeholder="Write caption here" wrap="soft" maxlength="500" required class="bg-gray-50 border font-mono text-gray-100 text-sm rounded-lg focus:ring-pink-300 focus:border-pink-500 block w-full p-2.5 dark:bg-gray-700 border-gray-600"></textarea>
 				<div class="py-4 bg-slate-800 font-mono font-semibold">
 					<div class="flex-wrap bg-slate-800">
-						<Tags class="flex-wrap"
+						<Tags 
 							on:tags={handleTags}
 							addKeys={[9]} 
 							maxTags={10}
