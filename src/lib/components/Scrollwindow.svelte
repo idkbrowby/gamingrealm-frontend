@@ -70,7 +70,7 @@
                         <InfiniteScroll
                         hasMore={newBatch.length}
                         threshold={100}
-                        on:loadMore={() => {cursorid=fetchData()}} />
+                        on:loadMore={() => {cursorid = fetchData()}} />
                     </ul>
                 </div>
             </div>
