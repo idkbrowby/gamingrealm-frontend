@@ -22,7 +22,7 @@
 						/>
 					</svg>
 					<!-- Name of Website -->
-					<h1 class="px-2  text-4xl hover:text-orange-300">Gaming Realm</h1>
+					<h1 class="px-2  text-4xl hover:text-orange-300 items-center">Gaming Realm</h1>
 				</a>
 			</button>
 		</div>
