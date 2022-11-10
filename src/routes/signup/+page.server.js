@@ -23,9 +23,8 @@ export const actions = {
         if (!res.ok) {
             return invalid(400, responseData);
         }
-
-        const user = responseData.user;
-        const value = btoa(JSON.stringify(user));
+        console.log(responseData);
+        const value = btoa(JSON.stringify(responseData));
         cookies.set('user', value, { path: '/', maxAge: COOKIE_MAX_AGE });
         throw redirect(307, '/');
     }
