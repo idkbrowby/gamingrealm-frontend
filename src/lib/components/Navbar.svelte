@@ -63,7 +63,7 @@
 				</button>
 			</div>
 			<!-- Login and signup -->
-			<div class="hidden md:flex justify-between rounded-xl pt-4 space-x-4 text-white font">
+			<div class="hidden md:flex justify-between rounded-xl pl-1.5 py-4 space-x-4 text-white font">
 				<button
 					class="transition duration-200  rounded-xl p-1 text-white hover:text-orange-200  flex items-center"
 					><a href="/login" class="font-mono  font-semibold pr-2">Login</a><svg
