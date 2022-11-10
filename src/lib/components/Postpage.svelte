@@ -7,7 +7,7 @@
     export let description: string;
     export let image : string; 
 </script>
-<div class="w-full h-auto flex border-2 border-white py-8 px-20">
+<div class="w-full h-auto flex border-2 border-white py-8 md:px-20 px-10">
     <div class="flex flex-col w-full  border-2 justify-start p-2 bg-slate-800 border-white rounded-xl">
         <div class="flex flex-col bg-slate-500 p-4 rounded-xl">
             <!-- Author -->
@@ -19,7 +19,7 @@
                 <img src={image} alt="Cannot Preview Image" class="max-w-40 h-80">
             </div>
             <!-- Title and rating bar -->
-            <div class="flex justify-between py-2 pl-2">
+            <div class="flex justify-between items-center py-2 pl-2">
                 <div class="flex font-mono font-bold text-3xl">
                     {title}
                 </div>
