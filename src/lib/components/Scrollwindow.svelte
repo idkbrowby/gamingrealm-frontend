@@ -60,7 +60,7 @@
                 <div class="py-2">
                     <ul class="flex flex-col w-full space-y-2 max-h-screen list-none overflow-x-scroll">
                         {#each data as item}
-                        <div>
+                        <a href="#">
                             <button class="w-full flex flex-col ">
                             <div class="p-2 bg-slate-500 rounded-md ">
                                 <li class="flex text-md font-bold text-2xl">
@@ -74,7 +74,7 @@
                                 </li> 
                             </div>
                         </button>
-                        </div>
+                        </a>
                         {/each}
                         <InfiniteScroll
                         hasMore={newBatch.length}
