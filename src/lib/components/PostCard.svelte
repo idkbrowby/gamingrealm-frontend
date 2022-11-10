@@ -1,8 +1,17 @@
-<script>
+<script lang="ts">
     import {DateTime} from "luxon";
-    export let item;
+
+    interface PostCardItem {
+        id: string;
+        title: string;
+        text_content: string;
+        created_at: string;
+    }
+
+    export let item: PostCardItem;
 </script>
-<a href="">
+
+<a href="/post/{item.id}">
     <button class="w-full flex flex-col ">
     <div class="p-2 bg-slate-500 rounded-md ">
         <li class="flex text-md font-bold text-2xl">
