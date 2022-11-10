@@ -1,7 +1,8 @@
 <script lang="ts">
 	let agreedTnC = false;
+	import Basicnavbar from "$lib/components/Basicnavbar.svelte";
 </script>
-
+<Basicnavbar/>
 <div class="min-h-screen bg-slate-800 flex p-12 justify-center">
 	<div class="flex items-cente justify-center">
 		<div

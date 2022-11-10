@@ -6,7 +6,7 @@
 	let username = $page.data.user ? $page.data.user.user.username : null;
 	export async function deletecookie(){
 		await fetch("/logout");
-		throw redirect(307,"/");
+		window.location.reload();
 	}
 </script>
 <nav class="w-full mx-auto bg-slate-800 pl-3 pr-3 py-2 rounded-b-lg">
@@ -63,7 +63,7 @@
 				</button>
 			</div>
 			<!-- Login and signup -->
-			<div class="hidden md:flex justify-between rounded-xl pl-4 space-x-4 text-white font">
+			<div class="hidden md:flex justify-between rounded-xl pl-1.5 py-4 space-x-4 text-white font">
 				<button
 					class="transition duration-200  rounded-xl p-1 text-white hover:text-orange-200  flex items-center"
 					><a href="/login" class="font-mono  font-semibold pr-2">Login</a><svg
@@ -123,16 +123,16 @@
 			<div
 				class="hidden md:flex justify-between pl-4 rounded-xl space-x-5 text-white hover:text-orange-200 font-medium hover:font-medium font-mono"
 			>
-				<button class="items-center" id="User">
+				<button class="items-center font-semibold" id="User">
 					<a href="/user/{$page.data.user.user.id}">{username}</a> 
 				</button>
 			</div>
-			<div class="hidden md:flex justify-between pl-4 rounded-xl space-x-5 text-white hover:text-orange-200 font-medium hover:font-medium font-mono">
+			<div class="hidden md:flex justify-between pl-4 rounded-xl space-x-5 text-white hover:text-orange-200 hover:font-medium font-mono font-semibold">
 			<button on:click={deletecookie}>Logout</button>
 			</div>
 			</div>
 		{/if}
-		<!-- Mobile stuff -->
+		<!-- Mobile logo and Site name -->
 		<div class="md:hidden flex items-center">
 			<button on:click={() => (menuactive = !menuactive)}>
 				<svg
@@ -153,7 +153,7 @@
 	<!-- mobile menu -->
 	{#if menuactive}
 		{#if window.innerWidth < 768}
-			<div class="mobile-menu flex-col pt-2 md:hidden transition duration-200 ease-in-out">
+			<div class="mobile-menu flex-col py-2  md:hidden transition duration-200 ease-in-out">
 				<!-- searchbar mobile -->
 				<div
 					class=" flex border border-white items-center rounded-lg  hover:bg-accents transition duration-700 pr-0.5"
@@ -183,7 +183,7 @@
 				{#if !signedin}
 					<!-- Login bar -->
 					<div
-						class=" px-2 py-2 flex justify-between text-white hover:text-pink-400 text-opacity-85"
+						class=" px-2 pt-4 flex justify-between text-white hover:text-orange-200 font-semibold text-opacity-85"
 					>
 						<button class="w-full"
 							><a href="/login" class="font-mono bold flex justify-between items-center"
@@ -208,16 +208,16 @@
 						</button>
 					</div>
 					<!-- Signup Bar -->
-					<div class="px-2 py-2 w-full text-white hover:text-pink-400 text-opacity-85">
+					<div class="px-2 py-2 w-full text-white hover:text-orange-200 font-semibold text-opacity-85">
 						<button class=" w-full justify-start"
-							><a href="/signup" class="flex justify-start font-mono font-medium w-full">Signup</a
+							><a href="/signup" class="flex justify-start font-mono  w-full">Signup</a
 							></button
 						>
 					</div>
 				{:else}
 					<!-- User details -->
 					<div
-						class=" px-2 py-4 flex justify-between text-white hover:text-pink-400 text-opacity-85"
+						class=" px-2 pt-4 flex justify-between text-white hover:text-pink-400 text-opacity-85"
 					>
 						<button class="w-full"
 							><a href="/user/{$page.data.user.user.id}" class="font-mono font-bold flex justify-between items-center"
@@ -225,7 +225,7 @@
 							></button
 						>
 					</div>
-					<div class=" px-2 py-4 flex text-white hover:text-pink-400 text-opacity-85">
+					<div class=" px-2 pt-4 flex text-white hover:text-pink-400 text-opacity-85">
 						
 							<button class="w-full font-mono font-bold flex justify-between items-center" on:click={deletecookie}>
 								Logout

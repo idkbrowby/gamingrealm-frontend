@@ -2,8 +2,9 @@
 	let agreedTnC = false;
 	let pass: string;
 	let confpass: string;
+	import Basicnavbar from "$lib/components/Basicnavbar.svelte";
 </script>
-
+<Basicnavbar/>
 <div class="min-h-screen bg-slate-800 flex p-12 justify-center">
 	<div class="flex items-center justify-center">
 		<div class="bg-slate-900 h-full p-10 w-full rounded-xl rounded-l-2xl flex-col justify-center">
