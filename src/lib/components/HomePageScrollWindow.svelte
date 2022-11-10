@@ -1,8 +1,10 @@
 <script lang="ts">
-    import { DateTime } from "luxon";
-    import {onMount} from "svelte";
+    import { onMount } from "svelte";
+
 	import InfiniteScroll from "./InfiniteScroll.svelte";
     import * as api from "../api";
+	import PostCard from "./PostCard.svelte";
+
 	// store all the data here.
 	let data = [];
 	// store the new batch of data here.
@@ -26,9 +28,6 @@
         const responsedata = await response.json();
 		newBatch =  responsedata.data;
 		cursorid = responsedata.cursor_id;
-        console.log(responsedata.cursor_id);
-        console.log(newBatch);
-        console.log(cursorid);
         return cursorid;
 	};
     let test;
@@ -42,7 +41,6 @@
 		...data,
     ...newBatch
   ];
-  console.log(data);
 </script>
 <div class=" py-4 px-4 w-full flex justify-between text-white font-mono ">
     <div class=" flex w-full justify-between space-x-4  ">
@@ -60,21 +58,7 @@
                 <div class="py-2">
                     <ul class="flex flex-col w-full space-y-2 max-h-screen list-none overflow-x-scroll">
                         {#each data as item}
-                        <a href="#">
-                            <button class="w-full flex flex-col ">
-                            <div class="p-2 bg-slate-500 rounded-md ">
-                                <li class="flex text-md font-bold text-2xl">
-                                    {item.title}
-                                </li>
-                                <li class="flex flex-wrap py-2 break-words">
-                                    {item.text_content.slice(0,75)}...
-                                </li>
-                                <li class="flex">
-                                Post created at : {DateTime.fromISO(item.created_at).toLocaleString(DateTime.DATETIME_MED)}
-                                </li> 
-                            </div>
-                        </button>
-                        </a>
+                            <PostCard item={item} />
                         {/each}
                         <InfiniteScroll
                         hasMore={newBatch.length}
@@ -92,11 +76,9 @@
                         <h1>Getting tags</h1>
                     {:then tags} 
                         {#each tags as tag}
-                    
                         <div class="p-2">
                             <a href=""><button class="border-2 rounded-lg bg-slate-500 p-2">{tag.tag_name}</button></a>
                         </div>
-                    
                     {/each}
                     {/await}
                 </div>

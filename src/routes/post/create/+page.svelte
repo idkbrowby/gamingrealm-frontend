@@ -1,4 +1,5 @@
 <script lang="ts">
+	import Tags from "svelte-tags-input";
 	
 	let input;
 	let container;
@@ -28,7 +29,6 @@
     } 
 		showImage = false; 
   	}
-	import Tags from "svelte-tags-input";
 	let tag="";
 	function handleTags(event) {
 		tag = event.detail.tags;
