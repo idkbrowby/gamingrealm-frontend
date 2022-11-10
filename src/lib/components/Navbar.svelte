@@ -6,7 +6,7 @@
 	let username =$page.data.user ? $page.data.user.username : null;
 	export async function deletecookie(){
 		await fetch("/logout");
-		throw redirect(307,"/");
+		window.location.reload();
 	}
 </script>
 <nav class="w-full mx-auto bg-slate-800 pl-3 pr-3 py-2 rounded-b-lg">

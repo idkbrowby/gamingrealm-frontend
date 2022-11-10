@@ -27,6 +27,7 @@
         console.log(cursorid);
         return cursorid;
 	};
+    let test;
 	
 	onMount(()=> {
 		// load first batch onMount
