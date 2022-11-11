@@ -1,9 +1,10 @@
 <script lang="ts">
 	import { page } from '$app/stores';
-	import {redirect}  from '@sveltejs/kit';
+
 	let menuactive = false;
 	let signedin = $page.data.user != null;
 	let username = $page.data.user ? $page.data.user.user.username : null;
+
 	export async function deletecookie(){
 		await fetch("/logout");
 		window.location.reload();

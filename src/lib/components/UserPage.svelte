@@ -22,14 +22,16 @@
             <!--User is logged in and is not viewing their own page-->
                 <div class="flex justify-center">
                     {#if currentUserIsFollowing}
+                    <a href={`${id}/unfollow`} class=" font-mono  font-semibold ">
                         <button
                         class="bg-slate-800 hover:bg-orange-200 hover:bg-opacity-75 transition duration-200 border-4 border-primary rounded-xl p-1 text-white hover:text-primary  flex items-center"
-                        ><a href="/unfollow" class=" font-mono  font-semibold ">Unfollow</a></button>
+                        >Unfollow</button></a>
                     {:else}
+                    <a href={`${id}/follow`} class=" font-mono  font-semibold ">
                         <button
                         class="bg-slate-800 hover:bg-orange-200 hover:bg-opacity-75 transition duration-200 border-4 border-primary rounded-xl p-1 text-white hover:text-primary  flex items-center"
-                        ><a href="/follow" class=" font-mono  font-semibold ">Follow</a></button
-                    >
+                        >Follow</button
+                    ></a>
                     {/if}
                 </div>
             {/if}

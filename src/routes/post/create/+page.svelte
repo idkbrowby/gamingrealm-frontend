@@ -1,4 +1,5 @@
 <script lang="ts">
+	import Tags from "svelte-tags-input";
 	
 	let input;
 	let container;
@@ -7,7 +8,11 @@
 	let showImage = false;
 	
 	import * as api from "../../../lib/api";
+	export let data;
+	let tagsList = data.tags;
+	tagsList = tagsList.map(x => x.tag_name);
 
+	console.log(tagsList);
 	function onChange() {
 		const file = input.files[0];
 		
@@ -24,13 +29,11 @@
     } 
 		showImage = false; 
   	}
-	import Tags from "svelte-tags-input";
-
+	let tag="";
 	function handleTags(event) {
 		tag = event.detail.tags;
+		console.log(tag);
 	}
-
-	const tagsList = ["test","testso","testsdkjfhskdjfhskdf","testsdfkjhsdfkjshfd","testssldfsldf","testsldifsldif","asddasdasda","Asdadasdasdad","kundihogya"];
 </script>
 
 <div class="min-h-screen bg-slate-500 flex py-12 justify-center">
