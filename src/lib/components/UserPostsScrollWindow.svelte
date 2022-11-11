@@ -5,6 +5,8 @@
     import * as api from "../api";
 	import PostCard from "./PostCard.svelte";
 
+    export let userId: string;
+
 	// store all the data here.
 	let data = [];
 	// store the new batch of data here.
@@ -12,7 +14,7 @@
 
 	let cursorid=null;	
     async function fetchTags(){
-        let response = await api.get("tags/");
+        let response = await api.get("tags");
         let tags = await response.json();
         return tags;
     }
@@ -24,7 +26,7 @@
         else{
             const headers=null;
         }
-		const response = await api.get("post/",headers);
+		const response = await api.get(`post/?uid=${userId}`,headers);
         const responsedata = await response.json();
 		newBatch =  responsedata.data;
 		cursorid = responsedata.cursor_id;
@@ -46,13 +48,9 @@
     <div class=" flex w-full justify-between space-x-4  ">
         
         <div class="w-full flex-col justify-center rounded-xl space-y-2 bg-slate-800 p-4">
-            <a href="/post/create">
-                <button class="w-full">
-                    <div class="w-full border-2 py-2 text-3/2xl  bg-slate-500 hover:bg-orange-200 flex-col hover:shadow-gray-500 justify-center font-semibold hover:border-white rounded-lg" id="createpost">
-                        Create post
+                    <div class="w-full border-2 py-2 pl-2 text-2xl  bg-slate-500 flex-col hover:shadow-gray-500 justify-center font-semibold hover:border-white rounded-lg" id="createpost">
+                        Posts
                     </div>
-                </button>
-            </a>
             <!--Posts -->
             <div class="flex flex-col h-full w-full">
                 <div class="py-2">
@@ -84,7 +82,6 @@
                 </div>
             </div>
         </div>
-        
     </div>
     
 </div>

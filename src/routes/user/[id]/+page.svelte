@@ -1,5 +1,6 @@
 <script>
     import UserPage from "$lib/components/UserPage.svelte";
+    import UserPostsScrollWindow from "$lib/components/UserPostsScrollWindow.svelte";
 
     export let data;
     let id = data.id;
@@ -13,3 +14,4 @@
 </script>
 
 <UserPage id={id} username={username} email={email} createdAt={created_at} followerCount={followerCount} followingCount={followingCount} currentUserIsFollowing={isFollowing} postsCount={postsCount} />
+<UserPostsScrollWindow userId={id} />

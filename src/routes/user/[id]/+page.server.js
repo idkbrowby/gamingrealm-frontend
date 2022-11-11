@@ -10,6 +10,7 @@ export async function load({ cookies, request, params }) {
       headers = new Headers();
       headers.set("user-id", cookie.user.id);
       headers.set("session-id", cookie.session_id);
+      cookies.set('user', unparsedCookie, { path: '/' });
     } else {
       headers = undefined;
     }
