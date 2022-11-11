@@ -25,13 +25,15 @@
             </div>
             {/each}
             <!-- Title and rating bar -->
-            <div class="flex justify-between items-center py-2 pl-2">
+            <div class="flex justify-start items-center py-2 pl-2">
                 <div class="flex font-mono font-bold text-3xl">
                     {title}
                 </div>
-                <div class="flex font-mono font-bold text-1/2xl">
+                
+                
+            </div>
+            <div class="pl-2 flex font-mono font-bold text-1/2xl">
                     rating : {rating} / 5
-                </div> 
             </div>
             <!-- descriptions -->
             <div class="p-2 font-mono text-md">
