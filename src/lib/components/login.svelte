@@ -1,42 +1,54 @@
-<div
-	class="w-full max-w-xs rounded-lg items-center justify-center relative bg-gradient-to-br dark:variant-gradient-primary-secondary variant-gradient-secondary-primary transition ease-in-out delay-75"
->
-	<span class="font-semibold justify-center items-center"><h1>Login</h1></span>
-	<form class="shadow-md rounded-lg px-8 pt-6 pb-8 mb-4" action="">
-		<div class="mb-4">
-			<label class="block text-gray-700 text-sm font-bold mb-2" for="username">
-				Username
+<script lang="ts">
+	let agreedTnC: boolean = false;
+</script>
 
-				<input
-					class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-					id="username"
-					type="text"
-					placeholder="Username"
-				/>
-			</label>
+<div class="min-h-screen min-w-full flex p-12 justify-center">
+	<div class="flex items-center justify-center w-1/2">
+		<div class=" h-full p-10 w-full flex-col justify-start">
+			<h1 class=" py-10 basis-1/6 text-5xl justify-center text-start">Login</h1>
+			<form method="POST" action="?/login">
+				<div class="py-2">
+					<label for="username" class="block mb-2">Username</label>
+					<input
+						type="text"
+						id="username"
+						name="username"
+						class=" border rounded-lg block w-full p-2.5"
+						placeholder="Username"
+						required
+					/>
+				</div>
+				<div class="py-2">
+					<label for="password" class="block mb-">Password</label>
+					<input
+						type="password"
+						id="password"
+						name="password"
+						class=" border rounded-lg block w-full p-2.5"
+						placeholder="********"
+						required
+					/>
+				</div>
+				<div class="flex items-start mb-6 py-4">
+					<div class="flex items-center h-5">
+						<input
+							id="remember"
+							type="checkbox"
+							bind:checked={agreedTnC}
+							class="w-4 h-4 rounded border"
+							required
+						/>
+					</div>
+					<label for="remember" class="ml-2 text-sm font-medium"
+						>I agree with the <a href="/" class="hover:underline">terms and conditions</a>.</label
+					>
+				</div>
+				<button type="submit" disabled={!agreedTnC} class="btn btn-lg variant-filled">Submit</button
+				>
+				<p class="py-2">
+					Not a User? <a class="" href="/signup">Signup Here</a>
+				</p>
+			</form>
 		</div>
-		<div class="mb-6">
-			<label class="block text-gray-700 text-sm font-bold mb-2" for="password">
-				Password
-
-				<input
-					class="shadow appearance-none border border-red-500 rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline"
-					id="password"
-					type="password"
-					placeholder="******************"
-				/>
-			</label>
-			<p class="text-red-500 text-xs italic">Please choose a password.</p>
-		</div>
-		<div class="flex items-center justify-between">
-			<button type="button" class="btn btn-lg variant-filled">Sign In</button>
-			<a class="inline-block align-baseline font-bold text-sm hover:text-accent" href=" ">
-				Forgot Password?
-			</a>
-		</div>
-		<div class=""><h6>test</h6></div>
-	</form>
-	<p class="text-center dark:text-white text-blue-900 shadow-xl font-extrabold text-xs">
-		@idkbrowby. Rights Reserved 2023
-	</p>
+	</div>
 </div>
