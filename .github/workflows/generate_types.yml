@@ -1,0 +1,22 @@
+on:
+  repository_dispatch:
+    types: [on-backend-deploy]
+
+jobs:
+  generate_types:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Use Node.js 20.x
+        uses: actions/setup-node@v3
+        with:
+          node-version: 20.x
+      - name: Install openapi-typescript
+        run: npm i -g openapi-typescript
+      - name: Run openapi-typescript
+        run: npx openapi-typescript https://gr.lnkshrt.xyz/openapi.json -o ./src/lib/api_schema.d.ts --path-params-as-types
+      - name: Commit file
+        run: |
+          git add src/lib/api_schema.d.ts
+          git commit -m "chore: generate API types"
+          git push
