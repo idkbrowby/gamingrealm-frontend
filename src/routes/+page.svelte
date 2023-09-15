@@ -1,8 +1,14 @@
-<script>
+<script lang="ts">
 	import Navbar from '$lib/components/Navbar.svelte';
-	import HomePageScrollWindow from '$lib/components/HomePageScrollWindow.svelte';
+	import Post from '$lib/components/post.svelte';
 </script>
 
-<body class="bg-slate-500" />
-<Navbar />
-<HomePageScrollWindow />
+<div class="h-full w-full flex-col space-y-6">
+	<div><Navbar /></div>
+
+	<div class="h-full w-full flex justify-center">
+		<div class="w-full">
+			<Post title="title" rating={4} description="description" author="author" />
+		</div>
+	</div>
+</div>

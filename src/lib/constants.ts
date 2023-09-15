@@ -1,1 +1,0 @@
-export const COOKIE_MAX_AGE = 30 * 24 * 60 * 60  // 2592000 seconds (30 days)

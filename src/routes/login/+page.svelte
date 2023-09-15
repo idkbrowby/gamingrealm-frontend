@@ -1,76 +1,81 @@
 <script lang="ts">
-	let agreedTnC = false;
-	import Basicnavbar from "$lib/components/Basicnavbar.svelte";
+	import BasicNavbar from '$lib/components/BasicNavbar.svelte';
+	import Post from '$lib/components/post.svelte';
+	import { onMount } from 'svelte';
+	export let form: any = undefined;
+	let picture: string = 'src/lib/assets/image-4.png';
+	let picNum: number = 1;
+	function pictureSwitch(n: number) {
+		if (n < 5) {
+			n = n + 1;
+		} else {
+			n = 1;
+		}
+		return n;
+	}
+	onMount(() => {
+		setInterval(() => {
+			picNum = pictureSwitch(picNum);
+			let x = picNum.toString();
+			let a = '';
+			picture = a.concat('src/lib/assets/image-', x, '.png');
+			console.log(picture);
+		}, 2000);
+	});
+	$: console.log(form);
 </script>
-<Basicnavbar/>
-<div class="min-h-screen bg-slate-800 flex p-12 justify-center">
-	<div class="flex items-cente justify-center">
+
+<BasicNavbar />
+<div class="py-10 flex h-full w-full justify-center items-center">
+	<div class="h-full w-2/3 lg:w-4/5 flex justify-center items-center">
 		<div
-			class="bg-slate-900 h-full p-10 w-full md:basis-1/2 rounded-xl md:rounded-l-2xl md:rounded-r-none flex-col justify-start"
+			class=" space-y-8 p-10 h-full w-full bg-surface-100-800-token flex-col rounded-lg border-surface-200-900-token"
 		>
-			<h1
-				class=" py-10 basis-1/6 text-5xl justify-center font-mono font-extrabold text-start text-pink-400"
-			>
-				Login
-			</h1>
+			<strong class="text-6xl font-extrabold">Login</strong>
+
 			<form method="POST">
-				<div class="py-2">
-					<label for="username" class="block mb-2 text-sm font-medium font-mono text-gray-300"
-						>Username</label
-					>
-					<input
-						type="text"
-						id="username"
-						name="username"
-						class="bg-gray-50 border font-mono text-gray-100 text-sm rounded-lg focus:ring-pink-300 focus:border-pink-500 block w-full p-2.5 dark:bg-gray-700 border-gray-600"
-						placeholder="Praveen Raj"
-						required
-					/>
-				</div>
-				<div class="py-2">
-					<label for="password" class="block mb-2 text-sm font-medium font-mono text-gray-300"
-						>Password</label
-					>
-					<input
-						type="password"
-						id="password"
-						name="password"
-						class="bg-gray-50 border font-mono text-gray-100 text-sm rounded-lg focus:ring-pink-300 focus:border-pink-500 block w-full p-2.5 dark:bg-gray-700 border-gray-600"
-						placeholder="Password"
-						required
-					/>
-				</div>
-				<div class="flex items-start mb-6 py-4">
-					<div class="flex items-center h-5">
+				<div class="space-y-4 py-4">
+					<!-- Username -->
+					<div class="w-full flex-col space-y-2">
+						<span class="text-xl">Username</span>
 						<input
-							id="remember"
-							type="checkbox"
-							bind:checked={agreedTnC}
-							class="w-4 h-4 bg-gray-50 rounded border border-gray-300 focus:ring-3 focus:ring-blue-300 dark:bg-gray-700 dark:border-gray-600 dark:focus:ring-blue-600 dark:ring-offset-gray-800"
+							type="text"
+							id="username"
+							name="username"
+							placeholder="Username"
+							class=" w-full variant-form-material"
 							required
 						/>
 					</div>
-					<label
-						for="remember"
-						class="ml-2 text-sm font-mono font-medium text-gray-900 dark:text-gray-400"
-						>I agree with the <a href="/" class="text-blue-600 hover:underline dark:text-blue-500"
-							>terms and conditions</a
-						>.</label
-					>
+					<!-- Password -->
+					<div class="w-full flex-col space-y-2">
+						<span class="text-xl">Password</span>
+						<input
+							type="password"
+							id="password"
+							name="password"
+							placeholder="*********"
+							class=" w-full variant-form-material"
+							required
+						/>
+					</div>
 				</div>
-				<button
-					type="submit"
-					disabled={!agreedTnC}
-					class="text-white bg-pink-400 hover:bg-pink-300 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center disabled:bg-slate-500"
-					>Submit</button
-				>
-				<p class="py-2 font-mono text-pink-200">
-					Not a User? <a class=" hover:text-slate-100" href="/signup">Signup Here</a>
-				</p>
+				<div class="flex-col space-y-4">
+					<div>
+						<strong>
+							Don't have an account ? <a href="/signup" class="text-primary-800-100-token">
+								Sign Up Here</a
+							></strong
+						>
+					</div>
+					<div>
+						<button class="btn variant-filled">Login</button>
+					</div>
+				</div>
 			</form>
 		</div>
-		<div class="hidden md:flex w-full basis-1/2 overflow-hidden">
-			<img src="gamer2.webp" alt="a gamer" class="w-full h-full rounded-r-2xl" />
+		<div class="hidden lg:flex h-full w-full">
+			<img src={picture} alt="gamer" class="h-full rounded-r-lg" />
 		</div>
 	</div>
 </div>
