@@ -14,7 +14,7 @@ jobs:
       - name: Install openapi-typescript
         run: npm i -g openapi-typescript
       - name: Run openapi-typescript
-        run: npx openapi-typescript https://gr.lnkshrt.xyz/openapi.json -o ./src/lib/api_schema.d.ts --path-params-as-types
+        run: npx openapi-typescript https://gr.lnkshrt.xyz/openapi.json -o ./src/lib/api_schema.d.ts
       - name: Commit file
         run: |
           git add src/lib/api_schema.d.ts
