@@ -32,7 +32,7 @@ export interface paths {
      */
     post: operations["logout_user_logout_post"];
   };
-  [path: `/user/${string}`]: {
+  "/user/{user_id}": {
     /**
      * Get User
      * @description Endpoint to get a user's data.
@@ -41,21 +41,21 @@ export interface paths {
      */
     get: operations["get_user_user__user_id__get"];
   };
-  [path: `/user/${string}/followers`]: {
+  "/user/{uid}/followers": {
     /**
      * Get User Followers
      * @description Get the specified user's followers.
      */
     get: operations["get_user_followers_user__uid__followers_get"];
   };
-  [path: `/user/${string}/follow`]: {
+  "/user/{uid}/follow": {
     /**
      * Follow User
      * @description Add the currently logged in user as a follower to user <uid>.
      */
     post: operations["follow_user_user__uid__follow_post"];
   };
-  [path: `/user/${string}/unfollow`]: {
+  "/user/{uid}/unfollow": {
     /**
      * Unfollow User
      * @description Make the currently logged in user unfollow user <uid>.
@@ -89,7 +89,7 @@ export interface paths {
      */
     get: operations["search_posts_post_search_get"];
   };
-  [path: `/post/${string}`]: {
+  "/post/{id}": {
     /**
      * Get Post
      * @description Get full details of a specific post.
@@ -101,7 +101,7 @@ export interface paths {
      */
     delete: operations["delete_post_post__id__delete"];
   };
-  [path: `/post/${string}/comments`]: {
+  "/post/{post_id}/comments": {
     /**
      * Get Comments
      * @description Paginate and get the comments of a post.
@@ -117,7 +117,7 @@ export interface paths {
      */
     post: operations["create_comment_post__post_id__comments_post"];
   };
-  [path: `/post/${string}/comments/${string}`]: {
+  "/post/{post_id}/comments/{comment_id}": {
     /**
      * Delete Comment
      * @description Endpoint to delete a comment.
@@ -453,10 +453,6 @@ export interface components {
     };
     /** UserProfile */
     UserProfile: {
-      /** Email */
-      email: string;
-      /** Username */
-      username: string;
       /** Id */
       id: string;
       /**
@@ -464,6 +460,10 @@ export interface components {
        * Format: date-time
        */
       created_at: string;
+      /** Email */
+      email: string;
+      /** Username */
+      username: string;
     };
     /**
      * UserProfileResponse
