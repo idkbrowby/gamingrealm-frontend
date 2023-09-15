@@ -10,7 +10,5 @@
 
 <AppShell>
 	<slot />
-	<!-- ---- / ---- -->
-	<!-- (pageFooter) -->
 	<svelte:fragment slot="footer">Footer</svelte:fragment>
 </AppShell>
