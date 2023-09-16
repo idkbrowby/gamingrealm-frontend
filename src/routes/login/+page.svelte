@@ -26,7 +26,7 @@
 </script>
 
 <BasicNavbar />
-<div class="py-10 flex h-full w-full justify-center items-center">
+<div class="py-10 flex my-auto h-5/6 w-full justify-center items-center">
 	<div class="h-full w-2/3 lg:w-4/5 flex justify-center items-center">
 		<div
 			class=" space-y-8 p-10 h-full w-full bg-surface-100-800-token flex-col rounded-lg border-surface-200-900-token"
@@ -61,6 +61,7 @@
 					</div>
 				</div>
 				<div class="flex-col space-y-4">
+					<!-- link to signup -->
 					<div>
 						<strong>
 							Don't have an account ? <a href="/signup" class="text-primary-800-100-token">
@@ -68,7 +69,8 @@
 							></strong
 						>
 					</div>
-					<div>
+					<!-- Submit button -->
+					<div class="pb-4">
 						<button class="btn variant-filled">Login</button>
 					</div>
 				</div>
