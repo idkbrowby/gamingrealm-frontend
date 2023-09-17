@@ -1,11 +1,15 @@
 <script lang="ts">
 	import BasicNavbar from '$lib/components/BasicNavbar.svelte';
 	import Post from '$lib/components/post.svelte';
-	import { onMount } from 'svelte';
+	import { onMount, onDestroy } from 'svelte';
+
 	export let form: any = undefined;
+
+	// picture switching function and attributes
 	let picture: string = 'src/lib/assets/image-4.png';
 	let picNum: number = 1;
-	function pictureSwitch(n: number) {
+
+	function pictureSwitch(n: number): number {
 		if (n < 5) {
 			n = n + 1;
 		} else {
@@ -13,8 +17,17 @@
 		}
 		return n;
 	}
+
+	function onInterval(callback: () => void, milliseconds: number) {
+		const interval = setInterval(callback, milliseconds);
+
+		onDestroy(() => {
+			clearInterval(interval);
+		});
+	}
+
 	onMount(() => {
-		setInterval(() => {
+		onInterval(() => {
 			picNum = pictureSwitch(picNum);
 			let x = picNum.toString();
 			let a = '';
