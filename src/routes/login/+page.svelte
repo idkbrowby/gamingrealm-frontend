@@ -31,7 +31,7 @@
 			picNum = pictureSwitch(picNum);
 			let x = picNum.toString();
 			let a = '';
-			picture = a.concat('src/lib/assets/image-', x, '.png');
+			picture = a.concat('assets/image-', x, '.png');
 			console.log(picture);
 		}, 2000);
 	});
