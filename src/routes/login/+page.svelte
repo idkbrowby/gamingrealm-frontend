@@ -17,13 +17,9 @@
 		}
 		return n;
 	}
-
+	let interval: any;
 	function onInterval(callback: () => void, milliseconds: number) {
-		const interval = setInterval(callback, milliseconds);
-
-		onDestroy(() => {
-			clearInterval(interval);
-		});
+		interval = setInterval(callback, milliseconds);
 	}
 
 	onMount(() => {
@@ -34,6 +30,9 @@
 			picture = a.concat('assets/image-', x, '.png');
 			console.log(picture);
 		}, 2000);
+	});
+	onDestroy(() => {
+		clearInterval(interval);
 	});
 	$: console.log(form);
 </script>
