@@ -6,7 +6,7 @@
 	export let form: any = undefined;
 
 	// picture switching function and attributes
-	let picture: string = 'assets/image-4.png';
+	let picture: string = 'assets/image-1.png';
 	let picNum: number = 1;
 
 	function pictureSwitch(n: number): number {
@@ -28,13 +28,11 @@
 			let x = picNum.toString();
 			let a = '';
 			picture = a.concat('assets/image-', x, '.png');
-			console.log(picture);
 		}, 2000);
 	});
 	onDestroy(() => {
 		clearInterval(interval);
 	});
-	$: console.log(form);
 </script>
 
 <BasicNavbar />
