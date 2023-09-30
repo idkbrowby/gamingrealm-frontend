@@ -1,10 +1,10 @@
 <script lang="ts">
 	import BasicNavbar from '$lib/components/BasicNavbar.svelte';
-	import Post from '$lib/components/post.svelte';
+	import { enhance } from '$app/forms';
 	import { onMount, onDestroy } from 'svelte';
 
-	export let form: any = undefined;
-
+	export let form;
+	$: console.log(form);
 	// picture switching function and attributes
 	let picture: string = 'assets/image-1.png';
 	let picNum: number = 1;
@@ -43,7 +43,7 @@
 		>
 			<strong class="text-6xl font-extrabold">Login</strong>
 
-			<form method="POST">
+			<form method="POST" action="login" use:enhance>
 				<div class="space-y-4 py-4">
 					<!-- Username -->
 					<div class="w-full flex-col space-y-2">
@@ -79,6 +79,11 @@
 							></strong
 						>
 					</div>
+					{#if form?.message}
+						<div class=" variant-filled-warning flex p-2 m-auto">
+							<strong>Password or Username in incorrect</strong>
+						</div>
+					{/if}
 					<!-- Submit button -->
 					<div class="pb-4">
 						<button class="btn variant-filled">Login</button>
