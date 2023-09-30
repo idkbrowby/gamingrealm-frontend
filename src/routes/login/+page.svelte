@@ -86,7 +86,7 @@
 				</div>
 			</form>
 		</div>
-		<div class="hidden lg:flex h-full w-full">
+		<div class="hidden xl:flex h-full w-full">
 			<img src={picture} alt="gamer" class="h-full rounded-r-lg" />
 		</div>
 	</div>
