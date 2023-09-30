@@ -17,6 +17,8 @@ jobs:
         run: npx openapi-typescript https://gr.lnkshrt.xyz/openapi.json -o ./src/lib/api_schema.d.ts
       - name: Commit file
         run: |
+          git config --global user.name github-actions[bot]
+          git config --global user.email 41898282+github-actions[bot]@users.noreply.github.com
           git add src/lib/api_schema.d.ts
           git commit -m "chore: generate API types"
           git push
