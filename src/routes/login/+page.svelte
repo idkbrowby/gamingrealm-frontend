@@ -8,6 +8,8 @@
 	// picture switching function and attributes
 	let picture: string = 'assets/image-1.png';
 	let picNum: number = 1;
+	let username: string = '';
+	let password: string = '';
 
 	function pictureSwitch(n: number): number {
 		if (n < 5) {
@@ -54,6 +56,7 @@
 							name="username"
 							placeholder="Username"
 							class=" w-full variant-form-material"
+							bind:value={username}
 							required
 						/>
 					</div>
@@ -66,6 +69,7 @@
 							name="password"
 							placeholder="*********"
 							class=" w-full variant-form-material"
+							bind:value={password}
 							required
 						/>
 					</div>
@@ -80,13 +84,17 @@
 						>
 					</div>
 					{#if form?.message}
-						<div class=" variant-filled-warning flex p-2 m-auto">
+						<div class=" variant-filled-error flex p-2 m-auto">
 							<strong>Password or Username in incorrect</strong>
 						</div>
 					{/if}
 					<!-- Submit button -->
 					<div class="pb-4">
-						<button class="btn variant-filled">Login</button>
+						{#if /\s/.test(username) || password.length < 8}
+							<button class="btn variant-filled" disabled>Login</button>
+						{:else}
+							<button class="btn variant-filled">Login</button>
+						{/if}
 					</div>
 				</div>
 			</form>

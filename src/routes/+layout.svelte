@@ -5,6 +5,7 @@
 	import hljs from 'highlight.js';
 	import 'highlight.js/styles/github-dark.css';
 	import { storeHighlightJs } from '@skeletonlabs/skeleton';
+	import { page } from '$app/stores';
 	storeHighlightJs.set(hljs);
 
 	// asset loading
@@ -18,9 +19,11 @@
 </script>
 
 <svelte:head>
-	{#each images as item}
-		<link as="image" href={item} rel="preload" class="h-full rounded-r-lg" />
-	{/each}
+	{#if !page.user}
+		{#each images as item}
+			<link as="image" href={item} rel="preload" class="h-full rounded-r-lg" />
+		{/each}
+	{/if}
 </svelte:head>
 <AppShell>
 	<slot />
