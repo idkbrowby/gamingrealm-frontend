@@ -1,9 +1,13 @@
 <script lang="ts">
 	import { enhance } from '$app/forms';
 	import BasicNavbar from '$lib/components/BasicNavbar.svelte';
-	import { onMount } from 'svelte';
-	export let form: any = undefined;
-	$: console.log(form);
+
+	// variables for validation
+	let username: string = '';
+	let pass: string = '';
+	let confpass: string = '';
+	let tncagreed: boolean = false;
+	export let form;
 </script>
 
 <BasicNavbar />
@@ -14,7 +18,7 @@
 		>
 			<strong class="text-6xl font-extrabold">Sign Up</strong>
 
-			<form method="POST" use:enhance>
+			<form method="POST" use:enhance autocomplete="off">
 				<div class="space-y-4 py-4">
 					<!-- Username -->
 					<div class="w-full flex-col space-y-2">
@@ -26,6 +30,7 @@
 							placeholder="Username"
 							class=" w-full variant-form-material"
 							required
+							bind:value={username}
 						/>
 					</div>
 					<!-- Email ID -->
@@ -49,18 +54,20 @@
 							name="password"
 							placeholder="*********"
 							class=" w-full variant-form-material"
+							bind:value={pass}
 							required
 						/>
 					</div>
 					<!-- Confirm Password -->
 					<div class="w-full flex-col space-y-2">
-						<span class="text-xl">Password</span>
+						<span class="text-xl">Confirm Password</span>
 						<input
 							type="password"
 							id="confpass"
 							name="confpass"
 							placeholder="*********"
 							class=" w-full variant-form-material"
+							bind:value={confpass}
 							required
 						/>
 					</div>
@@ -73,9 +80,27 @@
 							<a class="text-primary-800-100-token" href="/login"> Login Here</a>
 						</strong>
 					</div>
+					<div class="flex space-x-2">
+						<label for="tncagreed" class="cursor-pointer">
+							<input
+								type="checkbox"
+								id="tncagreed"
+								name="tncagreed"
+								bind:checked={tncagreed}
+								required
+								class="mr-2"
+							/>
+							I agree to the
+						</label>
+						<strong><a class="text-primary-800-100-token" href="#">Terms and Conditions</a></strong>
+					</div>
 					<!-- Submit Button -->
 					<div>
-						<button class="btn variant-filled">Sign Up</button>
+						{#if /\s/.test(username) || pass.length < 8 || pass != confpass}
+							<button class="btn variant-filled" disabled>Sign Up</button>
+						{:else}
+							<button class="btn variant-filled">Sign Up</button>
+						{/if}
 					</div>
 				</div>
 			</form>

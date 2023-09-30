@@ -1,10 +1,12 @@
 import * as api from '../../lib/api';
-import { error, fail } from '@sveltejs/kit';
-// export async function load({ cookies }) {
-//     const { data, error } = await api.signup(cookies.username, cookies.password, cookies.email);
-//     return { data, error };
-// }
+import { redirect, fail } from '@sveltejs/kit';
+import { MAX_COOKIE_AGE } from '$lib/constants';
 
+export async function load({ locals }) {
+	if (locals.user) {
+		throw redirect(307, '/');
+	}
+}
 export const actions = {
 	default: async ({ cookies, request }) => {
 		const data = await request.formData();
@@ -20,15 +22,12 @@ export const actions = {
 
 		if (responseData.error) {
 			const errorDetail = responseData.error.detail ? responseData.error.detail : 'Unknown error';
-			throw error(400, { message: errorDetail.toString() });
-		} else {
-			if (responseData.data) {
-				cookies.set('sessionid', responseData.data['session-id']?.toString());
-			} else {
-				throw error(400, { message: 'Response data is undefined' });
-			}
+			const errorMessage = Array.isArray(errorDetail) ? errorDetail[0].msg : errorDetail;
+			console.log('error detail is ', errorMessage);
+			throw fail(400, { message: errorMessage });
 		}
-
-		console.log('response data is ', responseData);
+		const value = btoa(JSON.stringify(responseData));
+		cookies.set('user', value, { path: '/', maxAge: MAX_COOKIE_AGE });
+		throw redirect(300, '/');
 	}
 };
