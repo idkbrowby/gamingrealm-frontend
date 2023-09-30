@@ -16,12 +16,15 @@ export async function signup(username: string, password: string, email: string) 
 	return { data, error };
 }
 
-// export async function login(username: string, password: string) {
-// 	const { data, value } = await POST("/user/login/", {
-// 		params: {
-// 			"username": username,
-// 			"password": password
-// 		}
-
-// 	});
-// }
+export async function login(username: string, password: string) {
+	const { data, error } = await POST('/user/login', {
+		body: {
+			username: username,
+			password: password
+		},
+		params: {
+			header: undefined
+		}
+	});
+	return { data, error };
+}
