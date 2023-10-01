@@ -1,4 +1,7 @@
+name: Generate TypeScript types
+
 on:
+  workflow_dispatch:
   repository_dispatch:
     types: [on-backend-deploy]
 
