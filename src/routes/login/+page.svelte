@@ -85,7 +85,7 @@
 					</div>
 					{#if form?.message}
 						<div class=" variant-filled-error flex p-2 m-auto">
-							<strong>Password or Username in incorrect</strong>
+							<strong />
 						</div>
 					{/if}
 					<!-- Submit button -->

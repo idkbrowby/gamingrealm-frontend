@@ -1,8 +1,9 @@
 import * as api from '../../lib/api';
 import { redirect, fail } from '@sveltejs/kit';
 import { MAX_COOKIE_AGE } from '$lib/constants';
+import type { App } from '../../app';
 
-export async function load({ locals }) {
+export async function load({ locals }: { locals: App.Locals }) {
 	if (locals.user) {
 		throw redirect(307, '/');
 	}
