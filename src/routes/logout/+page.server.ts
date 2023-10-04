@@ -8,12 +8,12 @@ export async function load({ cookies, locals }) {
 		const response = await api.logout(sessionid);
 		if (response.error) {
 			console.log(response.error);
-			throw redirect(308, '/');
+			throw redirect(307, '/');
 		}
 		console.log(response.data);
 		cookies.delete('user');
 		locals.user = null;
 		throw redirect(307, '/');
 	}
-	throw redirect(308, '/');
+	throw redirect(307, '/');
 }
