@@ -1,6 +1,8 @@
 <script lang="ts">
-	import { Avatar, LightSwitch } from '@skeletonlabs/skeleton';
+	import { Avatar, LightSwitch, popup } from '@skeletonlabs/skeleton';
+	import type { PopupSettings } from '@skeletonlabs/skeleton';
 	import { page } from '$app/stores';
+	import { redirect } from '@sveltejs/kit';
 
 	let drawerOpen = false;
 
@@ -9,12 +11,23 @@
 	let username = $page.data.user ? $page.data.user.username : null;
 	let initials = $page.data.user ? $page.data.user.username.slice(0, 2) : null;
 
+	// Logout function
+	async function logout() {
+		await fetch('/logout');
+		location.reload();
+	}
+
+	const popupFeatured: PopupSettings = {
+		// Represents the type of event that opens/closed the popup
+		event: 'click',
+		// Matches the data-popup value on your popup element
+		target: 'popupFeatured',
+		// Defines which side of your trigger the popup will appear
+		placement: 'bottom'
+	};
+
 	// SearcBbar Data
 	let search: string;
-	export async function signout() {
-		await fetch('/logout');
-		window.location.reload();
-	}
 </script>
 
 <div class=" w-full flex items-center justify-between bg-surface-100-800-token py-4 px-4">
@@ -27,17 +40,18 @@
 			}}
 		>
 			<svg
-				xmlns="http://www.w3.org/2000/svg"
+				data-darkreader-inline-stroke=""
+				aria-hidden="true"
 				fill="none"
-				viewBox="0 0 24 24"
-				stroke-width="1.5"
 				stroke="currentColor"
-				class="w-6 h-6"
+				stroke-width="1.5"
+				viewBox="0 0 24 24"
+				xmlns="http://www.w3.org/2000/svg"
 			>
 				<path
+					d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
 					stroke-linecap="round"
 					stroke-linejoin="round"
-					d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
 				/>
 			</svg>
 		</button>
@@ -80,10 +94,29 @@
 				</svg>
 			</button>
 		</div>
+		<div
+			class="card p-4 w-72 shadow-xl border-surface-900-50-token border-2 flex-col gap"
+			data-popup="popupFeatured"
+		>
+			<div class="pb-3">
+				<a href="/user/{username}"><button> <strong>{username}</strong></button></a>
+			</div>
+			<div class="flex justify-between pb-2">
+				<strong class="">Theme</strong><LightSwitch />
+			</div>
+			<div class="pt-2">
+				<button class="variant-filled-secondary p-1" on:click={logout}> Logout</button>
+			</div>
+
+			<div
+				class="arrow bg-surface-100-800-token border-surface-900-50-token border-l-2 border-t-2"
+			/>
+		</div>
 	</div>
 	<div class="">
 		{#if signedin}
-			<Avatar {initials} class="rounded-full h-14 w-14" />
+			<button use:popup={popupFeatured}><Avatar {initials} class="rounded-full h-14 w-14" /></button
+			>
 		{:else}
 			<a href="/login"><button class="btn variant-filled">Login</button></a>
 		{/if}
@@ -126,4 +159,3 @@
 		</div>
 	</div>
 {/if}
-<div class="w-full" />
