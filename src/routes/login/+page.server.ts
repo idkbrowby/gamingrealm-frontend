@@ -5,7 +5,7 @@ import type { App } from '../../app';
 
 export async function load({ locals }: { locals: App.Locals }) {
 	if (locals.user) {
-		throw redirect(300, '/');
+		throw redirect(307, '/');
 	}
 }
 export const actions = {

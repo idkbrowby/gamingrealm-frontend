@@ -4,7 +4,6 @@
 	import { onMount, onDestroy } from 'svelte';
 
 	export let form;
-	$: console.log(form);
 	// picture switching function and attributes
 	let picture: string = 'assets/image-1.png';
 	let picNum: number = 1;
@@ -85,7 +84,7 @@
 					</div>
 					{#if form?.message}
 						<div class=" variant-filled-error flex p-2 m-auto">
-							<strong />
+							<strong>Username Or Password Is Invalid</strong>
 						</div>
 					{/if}
 					<!-- Submit button -->
