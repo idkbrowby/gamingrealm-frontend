@@ -25,7 +25,7 @@ export const actions = {
 			const errorDetail = responseData.error.detail ? responseData.error.detail : 'Unknown error';
 			const errorMessage = Array.isArray(errorDetail) ? errorDetail[0].msg : errorDetail;
 			console.log('error detail is ', errorMessage);
-			throw fail(400, { message: errorMessage });
+			return fail(400, { message: errorMessage });
 		}
 		const value = btoa(JSON.stringify(responseData));
 		cookies.set('user', value, { path: '/', maxAge: MAX_COOKIE_AGE });

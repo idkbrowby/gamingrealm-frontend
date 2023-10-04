@@ -8,6 +8,7 @@
 	let confpass: string = '';
 	let tncagreed: boolean = false;
 	export let form;
+	$: console.log(form?.message);
 </script>
 
 <BasicNavbar />
@@ -74,12 +75,7 @@
 				</div>
 				<div class="flex-col space-y-4">
 					<!-- Link to login -->
-					<div>
-						<strong>
-							Already have an account ?
-							<a class="text-primary-800-100-token" href="/login"> Login Here</a>
-						</strong>
-					</div>
+
 					<div class="flex space-x-2">
 						<label for="tncagreed" class="cursor-pointer">
 							<input
@@ -94,6 +90,11 @@
 						</label>
 						<strong><a class="text-primary-800-100-token" href="#">Terms and Conditions</a></strong>
 					</div>
+					{#if form?.message}
+						<div class=" variant-filled-error flex p-2 m-auto">
+							<strong>This account already exists</strong>
+						</div>
+					{/if}
 					<!-- Submit Button -->
 					<div>
 						{#if /\s/.test(username) || pass.length < 8 || pass != confpass}
@@ -104,6 +105,12 @@
 					</div>
 				</div>
 			</form>
+			<div>
+				<strong>
+					Already have an account ?
+					<a class="text-primary-800-100-token" href="/login"> Login Here</a>
+				</strong>
+			</div>
 		</div>
 	</div>
 </div>
