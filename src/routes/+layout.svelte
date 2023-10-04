@@ -5,6 +5,9 @@
 	import hljs from 'highlight.js';
 	import 'highlight.js/styles/github-dark.css';
 	import { storeHighlightJs } from '@skeletonlabs/skeleton';
+	import { computePosition, autoUpdate, offset, shift, flip, arrow } from '@floating-ui/dom';
+	import { storePopup } from '@skeletonlabs/skeleton';
+	storePopup.set({ computePosition, autoUpdate, offset, shift, flip, arrow });
 	import { page } from '$app/stores';
 	storeHighlightJs.set(hljs);
 
@@ -19,7 +22,7 @@
 </script>
 
 <svelte:head>
-	{#if !page.user}
+	{#if !$page.data.user}
 		{#each images as item}
 			<link as="image" href={item} rel="preload" class="h-full rounded-r-lg" />
 		{/each}
