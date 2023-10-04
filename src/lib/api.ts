@@ -28,3 +28,14 @@ export async function login(username: string, password: string) {
 	});
 	return { data, error };
 }
+
+export async function logout(session_id: string) {
+	const { data, error } = await POST('/user/logout', {
+		params: {
+			header: {
+				'session-id': session_id
+			}
+		}
+	});
+	return { data, error };
+}
