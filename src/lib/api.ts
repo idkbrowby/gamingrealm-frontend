@@ -39,3 +39,17 @@ export async function logout(session_id: string) {
 	});
 	return { data, error };
 }
+
+export async function get_user(user_id: string, session_id: string) {
+	const { data, error } = await GET('/user/{user_id}', {
+		params: {
+			header: {
+				'session-id': session_id
+			},
+			path: {
+				user_id: user_id
+			}
+		}
+	});
+	return { data, error };
+}
