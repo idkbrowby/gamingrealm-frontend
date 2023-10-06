@@ -7,7 +7,7 @@
 <div class="h-full w-full">
 	<BasicNavbar />
 	<div class="py-4 px-2 flex justify-center items-center">
-		<div class="lg:w-1/2">
+		<div class="lg:w-full w-2/3">
 			<User
 				username={data.username}
 				follower_count={data.follower_count}
