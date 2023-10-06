@@ -8,7 +8,7 @@
 
 	// Avatar Data
 	let signedin = $page.data.user != null;
-	let username = $page.data.user ? $page.data.user.username : null;
+	let user = $page.data.user ? $page.data.user : null;
 	let initials = $page.data.user ? $page.data.user.username.slice(0, 2) : null;
 
 	// Logout function
@@ -94,24 +94,26 @@
 				</svg>
 			</button>
 		</div>
-		<div
-			class="card p-4 w-72 shadow-xl border-surface-900-50-token border-2 flex-col gap"
-			data-popup="popupFeatured"
-		>
-			<div class="pb-3">
-				<a href="/user/{username}"><button> <strong>{username}</strong></button></a>
-			</div>
-			<div class="flex justify-between pb-2">
-				<strong class="">Theme</strong><LightSwitch />
-			</div>
-			<div class="pt-2">
-				<button class="variant-filled-secondary p-1" on:click={logout}> Logout</button>
-			</div>
-
+		{#if signedin}
 			<div
-				class="arrow bg-surface-100-800-token border-surface-900-50-token border-l-2 border-t-2"
-			/>
-		</div>
+				class="card p-4 w-72 shadow-xl border-surface-900-50-token border-2 flex-col gap"
+				data-popup="popupFeatured"
+			>
+				<div class="pb-3">
+					<a href="/user/{user.id}"><button> <strong>{user.username}</strong></button></a>
+				</div>
+				<div class="flex justify-between pb-2">
+					<strong class="">Theme</strong><LightSwitch />
+				</div>
+				<div class="pt-2">
+					<button class="variant-filled-secondary p-1" on:click={logout}> Logout</button>
+				</div>
+
+				<div
+					class="arrow bg-surface-100-800-token border-surface-900-50-token border-l-2 border-t-2"
+				/>
+			</div>
+		{/if}
 	</div>
 	<div class="">
 		{#if signedin}
