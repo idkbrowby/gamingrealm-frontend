@@ -37,8 +37,8 @@
 </script>
 
 <BasicNavbar />
-<div class="py-10 flex my-auto h-5/6 w-full justify-center items-center">
-	<div class="h-full w-2/3 lg:w-4/5 flex justify-center items-center">
+<div class="py-10 flex my-3 h-5/6 w-full justify-center items-center">
+	<div class="h-full w-10/12 md:w-4/5 lg:w-4/5 flex justify-center items-center">
 		<div
 			class=" space-y-8 p-10 h-full w-full bg-surface-100-800-token flex-col rounded-lg border-surface-200-900-token"
 		>
@@ -77,7 +77,8 @@
 					<!-- link to signup -->
 					<div>
 						<strong>
-							Don't have an account ? <a href="/signup" class="text-primary-800-100-token">
+							Don't have an account ?<br class="md:hidden" />
+							<a href="/signup" class="text-primary-800-100-token underline">
 								Sign Up Here</a
 							></strong
 						>

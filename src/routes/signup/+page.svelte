@@ -12,12 +12,12 @@
 </script>
 
 <BasicNavbar />
-<div class="py-10 flex w-full max-h-5/6 justify-center items-center my-auto">
-	<div class="h-full w-2/3 lg:w-4/5 flex justify-center items-center">
+<div class="py-10 flex w-full max-h-5/6 justify-center items-center my-3">
+	<div class="h-full w-10/12 md:w-10/12 lg:w-4/5 flex justify-center items-center">
 		<div
 			class=" space-y-8 p-10 h-full w-full bg-surface-100-800-token flex-col rounded-lg border-surface-200-900-token"
 		>
-			<strong class="text-6xl font-extrabold">Sign Up</strong>
+			<strong class="text-4xl md:text-6xl font-extrabold">Sign Up</strong>
 
 			<form method="POST" use:enhance autocomplete="off">
 				<div class="space-y-4 py-4">
@@ -76,7 +76,7 @@
 				<div class="flex-col space-y-4">
 					<!-- Link to login -->
 
-					<div class="flex space-x-2">
+					<div class=" space-x-2">
 						<label for="tncagreed" class="cursor-pointer">
 							<input
 								type="checkbox"
@@ -87,11 +87,15 @@
 								class="mr-2"
 							/>
 							I agree to the
-						</label>
-						<strong><a class="text-primary-800-100-token" href="#">Terms and Conditions</a></strong>
+							<strong
+								><br class="md:hidden" /><a class="text-primary-800-100-token underline" href="#">
+									Terms and Conditions</a
+								></strong
+							></label
+						>
 					</div>
 					{#if form?.message}
-						<div class=" variant-filled-error flex p-2 m-auto">
+						<div class=" variant-filled-error flex p-2">
 							<strong>This account already exists</strong>
 						</div>
 					{/if}
@@ -105,10 +109,10 @@
 					</div>
 				</div>
 			</form>
-			<div>
+			<div class="flex">
 				<strong>
 					Already have an account ?
-					<a class="text-primary-800-100-token" href="/login"> Login Here</a>
+					<a class="text-primary-800-100-token underline" href="/login"> Login Here</a>
 				</strong>
 			</div>
 		</div>
