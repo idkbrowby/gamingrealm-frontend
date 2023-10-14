@@ -2,7 +2,6 @@
 	import { Avatar, LightSwitch, popup } from '@skeletonlabs/skeleton';
 	import type { PopupSettings } from '@skeletonlabs/skeleton';
 	import { page } from '$app/stores';
-	import { redirect } from '@sveltejs/kit';
 
 	let drawerOpen = false;
 
@@ -95,20 +94,49 @@
 			</button>
 		</div>
 		{#if signedin}
+			<!-- user dropdown -->
 			<div
-				class="card p-4 w-72 shadow-xl border-surface-900-50-token border-2 flex-col gap"
+				class="card px-4 py-2 w-72 shadow-xl border-surface-900-50-token border-2 flex-col gap"
 				data-popup="popupFeatured"
 			>
-				<div class="pb-3">
-					<a href="/user/{user.id}"><button> <strong>{user.username}</strong></button></a>
+				<div class="">
+					<a href="/user/{user.id}"
+						><div class="flex justify-between btn px-1">
+							<div><strong>Profile</strong></div>
+							<div>
+								<svg
+									xmlns="http://www.w3.org/2000/svg"
+									fill="none"
+									viewBox="0 0 24 24"
+									stroke-width="1.5"
+									stroke="currentColor"
+									class="w-6 h-6"
+								>
+									<path
+										stroke-linecap="round"
+										stroke-linejoin="round"
+										d="M17.982 18.725A7.488 7.488 0 0012 15.75a7.488 7.488 0 00-5.982 2.975m11.963 0a9 9 0 10-11.963 0m11.963 0A8.966 8.966 0 0112 21a8.966 8.966 0 01-5.982-2.275M15 9.75a3 3 0 11-6 0 3 3 0 016 0z"
+									/>
+								</svg>
+							</div>
+						</div></a
+					>
 				</div>
-				<div class="flex justify-between pb-2">
-					<strong class="">Theme</strong><LightSwitch />
-				</div>
-				<div class="pt-2">
-					<button class="variant-filled-secondary p-1" on:click={logout}> Logout</button>
-				</div>
+				<div class="flex justify-between p-1">
+					<div><strong class="">Theme</strong></div>
 
+					<div>
+						<LightSwitch />
+					</div>
+				</div>
+				<div class="py-3">
+					<button
+						class="flex w-full justify-center btn px-1 variant-filled-error"
+						on:click={logout}
+					>
+						<div class="w-full"><strong class="">Logout</strong></div>
+					</button>
+				</div>
 				<div
 					class="arrow bg-surface-100-800-token border-surface-900-50-token border-l-2 border-t-2"
 				/>
