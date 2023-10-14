@@ -1,12 +1,35 @@
 <script lang="ts">
 	import { Avatar } from '@skeletonlabs/skeleton';
-
+	import { page } from '$app/stores';
 	// user details
 	export let username: string | undefined;
 	export let follower_count: number = 0;
 	export let following_count: number = 0;
 	export let posts_count: number = 0;
-	export let since: string | null = null;
+	export let since: string | undefined;
+	export let sameuser: boolean;
+	export let is_following: boolean;
+	// Date details
+	let date = since ? since.slice(0, 10).split('-').reverse() : null;
+	function numToMonth(num: string | null) {
+		if (!num) return '';
+		let months = [
+			'January',
+			'February',
+			'March',
+			'April',
+			'May',
+			'June',
+			'July',
+			'August',
+			'September',
+			'October',
+			'November',
+			'December'
+		];
+		let month = parseInt(num);
+		return months[month - 1];
+	}
 </script>
 
 <div class="card">
@@ -47,8 +70,21 @@
 				</div>
 			</div>
 		</div>
-		<div class="flex justify-center font-bold">
-			a member since {since}
+		<div class="hidden md:flex justify-center font-bold">
+			A member of the Gaming Realm Community since
+			{numToMonth(date[1])}
+			{date ? date[2] : null}
 		</div>
+		{#if !sameuser}
+			{#if is_following}
+				<div class="flex justify-center font-bold">
+					<button class="btn variant-filled">UnFollow</button>
+				</div>
+			{:else}
+				<div class="flex justify-center font-bold">
+					<button class="btn variant-filled">Follow</button>
+				</div>
+			{/if}
+		{/if}
 	</div>
 </div>
