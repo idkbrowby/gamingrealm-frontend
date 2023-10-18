@@ -30,5 +30,5 @@
 </svelte:head>
 <AppShell>
 	<slot />
-	<svelte:fragment slot="footer">Footer</svelte:fragment>
+	<!-- <svelte:fragment slot="footer">Footer</svelte:fragment> -->
 </AppShell>
