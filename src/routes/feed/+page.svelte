@@ -26,7 +26,7 @@
 	}
 
 	onMount(async () => {
-		loading = fetchMore();
+		loading = await fetchMore();
 	});
 	$: {
 		data = [...data, ...newBatch];
@@ -36,30 +36,29 @@
 <div class="z-10">
 	<Navbar />
 </div>
+{#each data as post}
+	<Post
+		title={post.title}
+		description={post.text_content}
+		rating={post.ratings}
+		author={post.author.username}
+		author_id={post.author.id}
+	/>
+{/each}
 {#await loading}
 	<div class="flex-col flex my-2 gap-2">
 		<Loadingpost /><Loadingpost /><Loadingpost /><Loadingpost />
 		<Loadingpost /><Loadingpost /><Loadingpost /><Loadingpost />
 		<Loadingpost /><Loadingpost />
 	</div>
-{:then data}
-	{#each data as post}
-		<Post
-			title={post.title}
-			description={post.text_content}
-			rating={post.ratings}
-			author={post.author.username}
-			author_id={post.author.id}
-		/>
-	{/each}
 {:catch error}
 	<div class="card p-4 w-full">An Error occurred while loading posts</div>
 {/await}
 {#if !loaded}
 	<div class="w-full flex justify-center">
 		<button
-			on:click={() => {
-				loading = fetchMore();
+			on:click={async () => {
+				loading = await fetchMore();
 			}}
 			class="m-4 btn variant-filled-success">Fetch More</button
 		>
