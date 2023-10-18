@@ -27,7 +27,7 @@ export const actions = {
 			if (responseData.data) {
 				const value = btoa(JSON.stringify(responseData));
 				cookies.set('user', value, { path: '/', maxAge: MAX_COOKIE_AGE });
-				throw redirect(300, '/');
+				throw redirect(300, '/feed');
 			} else {
 				return fail(400, { message: 'Response data is undefined' });
 			}
