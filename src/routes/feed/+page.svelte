@@ -9,6 +9,7 @@
 
 	let data: any[] = [];
 	let newBatch: any[] = [];
+	let loading: any[];
 	let loaded: boolean = false;
 	let cursor: string | undefined = undefined;
 	async function fetchMore() {
@@ -23,18 +24,19 @@
 		}
 		return newBatch;
 	}
+
+	onMount(async () => {
+		loading = fetchMore();
+	});
 	$: {
 		data = [...data, ...newBatch];
 	}
-	onMount(async () => {
-		fetchMore();
-	});
 </script>
 
 <div class="z-10">
 	<Navbar />
 </div>
-{#await data}
+{#await loading}
 	<div class="flex-col flex my-2 gap-2">
 		<Loadingpost /><Loadingpost /><Loadingpost /><Loadingpost />
 		<Loadingpost /><Loadingpost /><Loadingpost /><Loadingpost />
@@ -55,6 +57,11 @@
 {/await}
 {#if !loaded}
 	<div class="w-full flex justify-center">
-		<button on:click={fetchMore} class="m-4 btn variant-filled-success">Fetch More</button>
+		<button
+			on:click={() => {
+				loading = fetchMore();
+			}}
+			class="m-4 btn variant-filled-success">Fetch More</button
+		>
 	</div>
 {/if}
