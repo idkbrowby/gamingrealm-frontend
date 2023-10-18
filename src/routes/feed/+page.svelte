@@ -12,9 +12,9 @@
 	let cursor: string | undefined = undefined;
 	async function fetchMore() {
 		if (!loaded) {
-			const res = await api.get_posts(10, cursor);
+			const res = await api.get_posts(1, cursor);
 			if (res.data) {
-				loaded = res.data.count !== 10;
+				loaded = res.data.count !== 1;
 				cursor = res.data.cursor_id;
 				newBatch = res.data.data;
 			}
@@ -31,12 +31,12 @@
 	}
 </script>
 
-<div class="z-10">
+<div class="z-10 mb-2">
 	<Navbar />
 </div>
 <Posts {data} />
 {#await loading}
-	<div class="flex-col flex my-2 gap-2">
+	<div class=" card flex-col flex gap-2">
 		<Loadingpost /><Loadingpost /><Loadingpost /><Loadingpost />
 		<Loadingpost /><Loadingpost /><Loadingpost /><Loadingpost />
 		<Loadingpost /><Loadingpost />

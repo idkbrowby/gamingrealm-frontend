@@ -3,16 +3,18 @@
 	import Post from '$lib/components/post.svelte';
 </script>
 
-<div class="card flex-col flex p-2">
-	{#each data as post}
-		<div class="my-2 w-full">
-			<Post
-				title={post.title}
-				description={post.text_content}
-				rating={post.ratings}
-				author={post.author.username}
-				author_id={post.author.id}
-			/>
-		</div>
-	{/each}
-</div>
+{#if data.length !== 0}
+	<div class="card flex-col flex p-2">
+		{#each data as post}
+			<div class="my-2 w-full">
+				<Post
+					title={post.title}
+					description={post.text_content}
+					rating={post.ratings}
+					author={post.author.username}
+					author_id={post.author.id}
+				/>
+			</div>
+		{/each}
+	</div>
+{/if}

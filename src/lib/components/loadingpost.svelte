@@ -1,4 +1,4 @@
-<div class="flex-col p-2 w-full opacity-30 bg-surface-800-100-token text-surface-100-800-token">
+<div class=" card m-2 flex-col p-2 opacity-30 bg-surface-800-100-token text-surface-100-800-token">
 	<div class="flex w-full justify-between my-2">
 		<div>
 			<div class="flex gap-2 items-center">
