@@ -65,3 +65,18 @@ export async function get_posts(take: number, cursor?: string) {
 	});
 	return { data, error };
 }
+
+export async function get_user_posts(user_id: string, take: number, cursor?: string) {
+	const { data, error } = await GET('/post/', {
+		params: {
+			header: {
+				take: take,
+				cursor: cursor
+			},
+			query: {
+				uid: user_id
+			}
+		}
+	});
+	return { data, error };
+}
