@@ -18,19 +18,14 @@
 				loaded = res.data.count !== 10;
 				cursor = res.data.cursor_id;
 				newBatch = res.data.data;
-				console.log(newBatch);
-				console.log(loaded);
 			}
 		}
-		return newBatch;
 	}
 	$: {
 		data = [...data, ...newBatch];
-		console.log(data);
 	}
 	onMount(async () => {
-		const data = await fetchMore();
-		console.log(data);
+		fetchMore();
 	});
 </script>
 
