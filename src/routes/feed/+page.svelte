@@ -32,7 +32,7 @@
 <div class="z-10">
 	<Navbar />
 </div>
-{#await fetchMore()}
+{#await newBatch}
 	<div class="flex-col flex my-2 gap-2">
 		<Loadingpost /><Loadingpost /><Loadingpost /><Loadingpost /><Loadingpost />
 	</div>
