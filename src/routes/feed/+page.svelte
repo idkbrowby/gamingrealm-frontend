@@ -12,9 +12,9 @@
 	let cursor: string | undefined = undefined;
 	async function fetchMore() {
 		if (!loaded) {
-			const res = await api.get_posts(1, cursor);
+			const res = await api.get_posts(10, cursor);
 			if (res.data) {
-				loaded = res.data.count !== 1;
+				loaded = res.data.count !== 10;
 				cursor = res.data.cursor_id;
 				newBatch = res.data.data;
 			}
