@@ -9,7 +9,7 @@
 
 	let data: any[] = [];
 	let newBatch: any[] = [];
-	let loading: any[];
+	let loading: any[] | Promise<any[]>;
 	let loaded: boolean = false;
 	let cursor: string | undefined = undefined;
 	async function fetchMore() {
@@ -26,7 +26,7 @@
 	}
 
 	onMount(async () => {
-		loading = await fetchMore();
+		loading = fetchMore();
 	});
 	$: {
 		data = [...data, ...newBatch];
