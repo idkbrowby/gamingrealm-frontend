@@ -35,7 +35,6 @@
 			class="btn-icon lg:hidden"
 			on:click={() => {
 				drawerOpen = !drawerOpen;
-				console.log(drawerOpen);
 			}}
 		>
 			<svg
