@@ -21,6 +21,7 @@
 			}
 			console.log(newBatch[0]);
 		}
+		return newBatch;
 	}
 	$: {
 		data = [...data, ...newBatch];
@@ -35,7 +36,9 @@
 </div>
 {#await data}
 	<div class="flex-col flex my-2 gap-2">
-		<Loadingpost /><Loadingpost /><Loadingpost /><Loadingpost /><Loadingpost />
+		<Loadingpost /><Loadingpost /><Loadingpost /><Loadingpost />
+		<Loadingpost /><Loadingpost /><Loadingpost /><Loadingpost />
+		<Loadingpost /><Loadingpost />
 	</div>
 {:then data}
 	{#each data as post}
@@ -47,6 +50,8 @@
 			author_id={post.author.id}
 		/>
 	{/each}
+{:catch error}
+	<div class="card p-4 w-full">An Error occurred while loading posts</div>
 {/await}
 {#if !loaded}
 	<div class="w-full flex justify-center">
