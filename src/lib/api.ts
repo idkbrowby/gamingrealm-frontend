@@ -53,3 +53,15 @@ export async function get_user(user_id: string, session_id: string) {
 	});
 	return { data, error };
 }
+
+export async function get_posts(take: number, cursor?: string) {
+	const { data, error } = await GET('/post/', {
+		params: {
+			header: {
+				take: take,
+				cursor: cursor
+			}
+		}
+	});
+	return { data, error };
+}
