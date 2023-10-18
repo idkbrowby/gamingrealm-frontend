@@ -95,7 +95,7 @@
 		{#if signedin}
 			<!-- user dropdown -->
 			<div
-				class="card px-4 py-2 w-72 shadow-xl border-surface-900-50-token border-2 flex-col gap"
+				class="card px-4 py-2 w-72 shadow-xl border-surface-900-50-token border-2 flex-col z-50"
 				data-popup="popupFeatured"
 			>
 				<div class="">
