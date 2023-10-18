@@ -3,9 +3,9 @@
 	import Post from '$lib/components/post.svelte';
 </script>
 
-<div class="card flex-col flex">
+<div class="card flex-col flex p-2">
 	{#each data as post}
-		<div class="my-2">
+		<div class="my-2 w-full">
 			<Post
 				title={post.title}
 				description={post.text_content}
