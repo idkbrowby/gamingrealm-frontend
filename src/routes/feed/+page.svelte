@@ -1,8 +1,6 @@
 <script lang="ts">
-	import BasicNavbar from '$lib/components/BasicNavbar.svelte';
-	import Makepost from '$lib/components/makepost.svelte';
 	import Navbar from '$lib/components/Navbar.svelte';
-	import Post from '$lib/components/post.svelte';
+	import Posts from '$lib/components/Posts.svelte';
 	import Loadingpost from '$lib/components/loadingpost.svelte';
 	import * as api from '../../lib/api';
 	import { onMount } from 'svelte';
@@ -36,15 +34,7 @@
 <div class="z-10">
 	<Navbar />
 </div>
-{#each data as post}
-	<Post
-		title={post.title}
-		description={post.text_content}
-		rating={post.ratings}
-		author={post.author.username}
-		author_id={post.author.id}
-	/>
-{/each}
+<Posts {data} />
 {#await loading}
 	<div class="flex-col flex my-2 gap-2">
 		<Loadingpost /><Loadingpost /><Loadingpost /><Loadingpost />
