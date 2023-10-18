@@ -39,9 +39,14 @@
 	</div>
 {:then data}
 	{#each data as post}
-		{post.title}
+		<Post
+			title={post.title}
+			description={post.text_content}
+			rating={post.ratings}
+			author={post.author.username}
+			author_id={post.author.id}
+		/>
 	{/each}
-	<!-- promise was fulfilled -->
 {/await}
 {#each data as item}
 	<div>
