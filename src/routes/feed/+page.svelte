@@ -19,6 +19,7 @@
 				cursor = res.data.cursor_id;
 				newBatch = res.data.data;
 			}
+			console.log(newBatch[0]);
 		}
 	}
 	$: {
@@ -32,13 +33,13 @@
 <div class="z-10">
 	<Navbar />
 </div>
-{#await newBatch}
+{#await data}
 	<div class="flex-col flex my-2 gap-2">
 		<Loadingpost /><Loadingpost /><Loadingpost /><Loadingpost /><Loadingpost />
 	</div>
 {:then data}
 	{#each data as post}
-		{post.id}
+		{post.title}
 	{/each}
 	<!-- promise was fulfilled -->
 {/await}
