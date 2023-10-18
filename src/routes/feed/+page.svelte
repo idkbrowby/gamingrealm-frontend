@@ -22,7 +22,7 @@
 			}
 			console.log(newBatch[0]);
 		}
-		return newBatch;
+		return Promise.resolve(newBatch);
 	}
 
 	onMount(async () => {
