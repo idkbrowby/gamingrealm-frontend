@@ -53,7 +53,7 @@
 			<strong>This User has no Posts</strong>
 		</div>
 	{:else}
-		<Posts {batch} />
+		<Posts data={batch} />
 		{#await loading}
 			<div class=" card flex-col flex gap-2">
 				<Loadingpost /><Loadingpost /><Loadingpost /><Loadingpost />
