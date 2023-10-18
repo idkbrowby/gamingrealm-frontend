@@ -48,15 +48,8 @@
 		/>
 	{/each}
 {/await}
-{#each data as item}
-	<div>
-		{item.id}
+{#if !loaded}
+	<div class="w-full flex justify-center">
+		<button on:click={fetchMore} class="m-4 btn variant-filled-success">Fetch More</button>
 	</div>
-	<!-- content here -->
-{/each}
-<div class="w-full flex justify-center">
-	<button on:click={fetchMore} class="m-4 btn variant-filled-success">Fetch More</button>
-	<!-- <div class="h-screen w-full flex z-2 justify-center">
-	<Makepost />
-</div> -->
-</div>
+{/if}
