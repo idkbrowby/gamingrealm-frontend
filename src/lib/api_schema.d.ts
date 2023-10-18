@@ -453,10 +453,6 @@ export interface components {
     };
     /** UserProfile */
     UserProfile: {
-      /** Id */
-      id: string;
-      /** Username */
-      username: string;
       /**
        * Created At
        * Format: date-time
@@ -464,6 +460,10 @@ export interface components {
       created_at: string;
       /** Email */
       email: string;
+      /** Id */
+      id: string;
+      /** Username */
+      username: string;
     };
     /**
      * UserProfileResponse
