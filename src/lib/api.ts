@@ -80,3 +80,14 @@ export async function get_user_posts(user_id: string, take: number, cursor?: str
 	});
 	return { data, error };
 }
+
+export async function get_post(post_id: string) {
+	const { data, error } = await GET('/post/{id}', {
+		params: {
+			path: {
+				id: post_id
+			}
+		}
+	});
+	return { data, error };
+}
