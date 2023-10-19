@@ -13,6 +13,7 @@
 					rating={post.ratings}
 					author={post.author.username}
 					author_id={post.author.id}
+					post_id={post.id}
 				/>
 			</div>
 		{/each}

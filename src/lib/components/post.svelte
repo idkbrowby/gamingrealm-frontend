@@ -4,6 +4,7 @@
 	export let description: string;
 	export let author: string;
 	export let author_id: string;
+	export let post_id: string;
 
 	let initials = author.slice(0, 2);
 	import { Avatar } from '@skeletonlabs/skeleton';
@@ -19,7 +20,7 @@
 				</div>
 			</a>
 		</div>
-		<div>{title}</div>
+		<a href="/post/{post_id}"> <div>{title}</div></a>
 	</div>
 
 	{rating}
