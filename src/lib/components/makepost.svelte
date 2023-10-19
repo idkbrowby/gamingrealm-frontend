@@ -2,8 +2,8 @@
 	import { FileDropzone } from '@skeletonlabs/skeleton';
 </script>
 
-<div class="  min-h-full flex items-center justify-center py-10">
-	<div class="flex flex-col items-center card mb-10 mx-10 p-10 justify-center w-10/12">
+<div class=" h-full flex items-center justify-center py-10">
+	<div class="h-full flex flex-col items-center card mb-10 mx-10 p-10 justify-center w-10/12">
 		<form method="POST" action="makepost">
 			<div class="space-y-4 py-4">
 				<!-- Title of post -->
@@ -32,9 +32,9 @@
 				</div>
 				<div>
 					<span class="text-xl">File</span>
-					<input class="input flex md:hidden" id="file" type="file" />
+					<input class="input flex md:hidden" id="file" type="file" bind:files />
 
-					<FileDropzone name="file" class="md:flex hidden ">
+					<FileDropzone name="file" bind:files class="md:flex hidden ">
 						<svelte:fragment slot="lead"
 							><div class="flex justify-center">
 								<svg
