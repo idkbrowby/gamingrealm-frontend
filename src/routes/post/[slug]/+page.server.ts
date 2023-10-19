@@ -7,6 +7,7 @@ export async function load({ params, locals }) {
 	) {
 		if (locals && locals.user) {
 			const res = await api.get_post(params.slug);
+			console.log(res);
 			if (res.error) {
 				// throwing error for user not found
 				throw error(400, 'Post Not Found');
