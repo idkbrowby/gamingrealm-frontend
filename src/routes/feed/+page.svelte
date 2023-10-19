@@ -44,7 +44,7 @@
 {:catch error}
 	<div class="card p-4 w-full">An Error occurred while loading posts</div>
 {/await}
-{#if !loaded}
+{#if !loaded && newBatch.length > 0}
 	<div class="w-full flex justify-center">
 		<button
 			on:click={async () => {
