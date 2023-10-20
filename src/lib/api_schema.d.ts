@@ -453,17 +453,17 @@ export interface components {
     };
     /** UserProfile */
     UserProfile: {
+      /** Email */
+      email: string;
+      /** Username */
+      username: string;
       /**
        * Created At
        * Format: date-time
        */
       created_at: string;
-      /** Email */
-      email: string;
       /** Id */
       id: string;
-      /** Username */
-      username: string;
     };
     /**
      * UserProfileResponse
