@@ -165,7 +165,7 @@ export interface components {
       /** Title */
       title: string;
       /** Text Content */
-      text_content: string;
+      text_content?: string;
       /**
        * Created At
        * Format: date-time
@@ -176,8 +176,6 @@ export interface components {
        * Format: date-time
        */
       updated_at: string;
-      /** Deleted */
-      deleted: boolean;
       /** Urls */
       urls: string[];
     };
@@ -455,13 +453,13 @@ export interface components {
     UserProfile: {
       /** Email */
       email: string;
-      /** Username */
-      username: string;
       /**
        * Created At
        * Format: date-time
        */
       created_at: string;
+      /** Username */
+      username: string;
       /** Id */
       id: string;
     };
