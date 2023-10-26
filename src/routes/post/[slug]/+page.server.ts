@@ -10,14 +10,16 @@ export async function load({ params, locals }) {
 			console.log(res);
 			if (res.error) {
 				// throwing error for user not found
+				console.log(res.error);
 				throw error(400, 'Post Not Found');
 			} else {
 				if (res.data) {
+					console.log(res.data);
 					return res.data;
 				}
 			}
 		}
 	}
 	//throwing error for invalid user id
-	throw error(400, 'Invalid User ID');
+	throw error(400, 'Not Logged in ');
 }
