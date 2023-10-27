@@ -39,3 +39,55 @@ export async function logout(session_id: string) {
 	});
 	return { data, error };
 }
+
+export async function get_user(user_id: string, session_id: string) {
+	const { data, error } = await GET('/user/{user_id}', {
+		params: {
+			header: {
+				'session-id': session_id
+			},
+			path: {
+				user_id: user_id
+			}
+		}
+	});
+	return { data, error };
+}
+
+export async function get_posts(take: number, cursor?: string) {
+	const { data, error } = await GET('/post/', {
+		params: {
+			header: {
+				take: take,
+				cursor: cursor
+			}
+		}
+	});
+	return { data, error };
+}
+
+export async function get_user_posts(user_id: string, take: number, cursor?: string) {
+	const { data, error } = await GET('/post/', {
+		params: {
+			header: {
+				take: take,
+				cursor: cursor
+			},
+			query: {
+				uid: user_id
+			}
+		}
+	});
+	return { data, error };
+}
+
+export async function get_post(post_id: string) {
+	const { data, error } = await GET('/post/{id}', {
+		params: {
+			path: {
+				id: post_id
+			}
+		}
+	});
+	return { data, error };
+}
