@@ -456,12 +456,12 @@ export interface components {
        * Format: date-time
        */
       created_at: string;
+      /** Id */
+      id: string;
       /** Email */
       email: string;
       /** Username */
       username: string;
-      /** Id */
-      id: string;
     };
     /**
      * UserProfileResponse
