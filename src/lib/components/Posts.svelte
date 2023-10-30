@@ -14,6 +14,7 @@
 					author={post.author.username}
 					author_id={post.author.id}
 					post_id={post.id}
+					image_url={post.media[0].object_url}
 				/>
 			</div>
 		{/each}
