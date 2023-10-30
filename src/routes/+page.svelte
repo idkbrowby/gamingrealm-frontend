@@ -8,9 +8,6 @@
 	<div><Navbar /></div>
 
 	<div class="h-full w-full flex justify-center">
-		<div class="flex-col flex w-full gap-2">
-			<Post title="title" rating={4} description="description" author="author" author_id="asd" />
-			<Loadingpost />
-		</div>
+		<div class="flex-col flex w-full gap-2" />
 	</div>
 </div>
