@@ -11,7 +11,7 @@ export async function load({ params, locals }) {
 			if (res.error) {
 				// throwing error for user not found
 				console.log(res.error);
-				throw error(400, 'Post Not Found');
+				throw error(404, 'Post Not Found');
 			} else {
 				if (res.data) {
 					console.log(res.data);
