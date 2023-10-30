@@ -18,7 +18,7 @@
 				cursor = res.data.cursor_id;
 				newBatch = res.data.data;
 			}
-			console.log(newBatch[0]);
+			console.log(newBatch);
 		}
 		return Promise.resolve(newBatch);
 	}
