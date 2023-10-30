@@ -1,7 +1,5 @@
 <script lang="ts">
 	import Navbar from '$lib/components/Navbar.svelte';
-	import Post from '$lib/components/post.svelte';
-	import Loadingpost from '$lib/components/loadingpost.svelte';
 </script>
 
 <div class="h-full w-full flex-col space-y-6">
@@ -9,5 +7,8 @@
 
 	<div class="h-full w-full flex justify-center">
 		<div class="flex-col flex w-full gap-2" />
+		<button class="btn">
+			<a href="/feed">feed</a>
+		</button>
 	</div>
 </div>
