@@ -5,8 +5,8 @@
 
 	export let form;
 	// picture switching function and attributes
-	let picture: string = 'assets/image-1.png';
-	let picNum: number = 1;
+	let picture: string = 'assets/image-4.png';
+	let picNum: number = 4;
 	let username: string = '';
 	let password: string = '';
 
