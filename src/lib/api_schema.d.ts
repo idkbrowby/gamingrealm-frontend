@@ -451,17 +451,17 @@ export interface components {
     };
     /** UserProfile */
     UserProfile: {
-      /** Id */
-      id: string;
-      /** Username */
-      username: string;
       /**
        * Created At
        * Format: date-time
        */
       created_at: string;
+      /** Id */
+      id: string;
       /** Email */
       email: string;
+      /** Username */
+      username: string;
     };
     /**
      * UserProfileResponse
